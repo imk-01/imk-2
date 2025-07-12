@@ -131,6 +131,7 @@ export default function Navigation() {
   return (
     <>
       {/* Top Bar */}
+      {/*
       <div className="bg-stis-blue-900 text-white py-2 px-4 text-sm">
         <div className="container mx-auto flex flex-wrap justify-between items-center">
           <div className="flex items-center space-x-6">
@@ -158,20 +159,23 @@ export default function Navigation() {
           </div>
         </div>
       </div>
+      */}
 
       {/* Main Navigation */}
       <nav ref={navRef} className="bg-white shadow-lg sticky top-0 z-50">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-3">
-              <img src="/api/placeholder/60/60" alt="Logo STIS" className="w-15 h-15" />
+              <img src="/logo_STIS.png" alt="Logo STIS" className="w-10 h-10" />
               <div>
                 <h1 className="font-display font-bold text-lg lg:text-xl text-stis-blue-900 leading-tight">
                   Politeknik Statistika STIS
                 </h1>
+                {/*
                 <p className="text-sm text-gray-600">
                   Sekolah Tinggi Ilmu Statistik
                 </p>
+                */}
               </div>
             </div>
             <div className="flex items-center space-x-4 lg:hidden">
