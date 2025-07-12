@@ -7,7 +7,8 @@
    npm install
 4. Jalankan project
    npm run dev
-5. Build dan Start (buka terminl baru dengan tidak menutup terminal sebelumnya)
+   Jalankan di browser localhost:8080
+6. Kalau tidak bisa, build dan Start (buka terminl baru dengan tidak menutup terminal sebelumnya)
    npm run build
    npm start
-6. Buka browser dan akses localhost
+   buka browser dan akses localhost
