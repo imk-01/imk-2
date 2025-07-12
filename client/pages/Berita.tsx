@@ -1,0 +1,745 @@
+import Navigation from "@/components/Navigation";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useState } from "react";
+import {
+  Calendar,
+  User,
+  Clock,
+  Search,
+  Filter,
+  Tag,
+  ChevronRight,
+  TrendingUp,
+  Eye,
+  Share2,
+  ArrowRight,
+} from "lucide-react";
+
+export default function Berita() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("Semua");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+
+  const newsArticles = [
+    {
+      id: 1,
+      title: "Polstat STIS Raih Akreditasi A untuk Semua Program Studi",
+      excerpt:
+        "Politeknik Statistika STIS berhasil mempertahankan akreditasi A dari BAN-PT untuk ketiga program studinya, membuktikan komitmen terhadap kualitas pendidikan statistik.",
+      content:
+        "Dalam penilaian terbaru dari Badan Akreditasi Nasional Perguruan Tinggi (BAN-PT)...",
+      category: "Akademik",
+      author: "Tim Redaksi STIS",
+      date: "20 Maret 2024",
+      readTime: "5 menit",
+      image: "/api/placeholder/600/400",
+      featured: true,
+      views: 1250,
+      tags: ["Akreditasi", "BAN-PT", "Program Studi"],
+    },
+    {
+      id: 2,
+      title: "Pembukaan Pendaftaran Mahasiswa Baru STIS 2024/2025",
+      excerpt:
+        "Pendaftaran mahasiswa baru untuk tahun akademik 2024/2025 resmi dibuka dengan sistem seleksi yang komprehensif dan transparan.",
+      content:
+        "Politeknik Statistika STIS membuka pendaftaran mahasiswa baru...",
+      category: "Pendaftaran",
+      author: "Panitia PMB",
+      date: "15 Maret 2024",
+      readTime: "3 menit",
+      image: "/api/placeholder/600/400",
+      featured: true,
+      views: 2100,
+      tags: ["PMB", "Pendaftaran", "Mahasiswa Baru"],
+    },
+    {
+      id: 3,
+      title: "Seminar Nasional Big Data Analytics dan Machine Learning",
+      excerpt:
+        "STIS mengadakan seminar nasional dengan tema Big Data Analytics dan Machine Learning yang dihadiri oleh pakar dari berbagai universitas terkemuka.",
+      content: "Dalam era digital yang berkembang pesat...",
+      category: "Seminar",
+      author: "Dr. Ir. Ahmad Fauzi",
+      date: "10 Maret 2024",
+      readTime: "4 menit",
+      image: "/api/placeholder/600/400",
+      featured: false,
+      views: 856,
+      tags: ["Big Data", "Machine Learning", "Seminar"],
+    },
+    {
+      id: 4,
+      title: "Mahasiswa STIS Juara 1 Kompetisi Data Science Nasional",
+      excerpt:
+        "Tim mahasiswa STIS berhasil meraih juara 1 dalam kompetisi Data Science tingkat nasional yang diselenggarakan oleh Kementerian Pendidikan.",
+      content: "Prestasi membanggakan kembali diraih oleh mahasiswa...",
+      category: "Prestasi",
+      author: "Humas STIS",
+      date: "5 Maret 2024",
+      readTime: "3 menit",
+      image: "/api/placeholder/600/400",
+      featured: true,
+      views: 1580,
+      tags: ["Data Science", "Kompetisi", "Prestasi"],
+    },
+    {
+      id: 5,
+      title: "Workshop Machine Learning untuk Mahasiswa Semester Akhir",
+      excerpt:
+        "STIS mengadakan workshop intensif Machine Learning dengan pembicara dari industri teknologi terkemuka untuk mempersiapkan mahasiswa memasuki dunia kerja.",
+      content: "Sebagai bagian dari program pengembangan kompetensi...",
+      category: "Workshop",
+      author: "Tim Akademik",
+      date: "25 Februari 2024",
+      readTime: "4 menit",
+      image: "/api/placeholder/600/400",
+      featured: false,
+      views: 723,
+      tags: ["Machine Learning", "Workshop", "Kompetensi"],
+    },
+    {
+      id: 6,
+      title: "Kerjasama STIS dengan BPS Pusat dalam Pengembangan SDM",
+      excerpt:
+        "Polstat STIS menandatangani MoU dengan BPS Pusat untuk pengembangan sumber daya manusia statistik yang berkualitas.",
+      content: "Dalam upaya meningkatkan kualitas pendidikan...",
+      category: "Kerjasama",
+      author: "Direktur STIS",
+      date: "20 Februari 2024",
+      readTime: "6 menit",
+      image: "/api/placeholder/600/400",
+      featured: false,
+      views: 1124,
+      tags: ["BPS", "MoU", "SDM"],
+    },
+    {
+      id: 7,
+      title: "Peluncuran Program Beasiswa Prestasi untuk Mahasiswa Berprestasi",
+      excerpt:
+        "STIS meluncurkan program beasiswa prestasi untuk mendukung mahasiswa berprestasi dari keluarga kurang mampu.",
+      content: "Komitmen STIS dalam mendukung pendidikan berkualitas...",
+      category: "Beasiswa",
+      author: "Bagian Kemahasiswaan",
+      date: "18 Februari 2024",
+      readTime: "3 menit",
+      image: "/api/placeholder/600/400",
+      featured: false,
+      views: 967,
+      tags: ["Beasiswa", "Prestasi", "Mahasiswa"],
+    },
+    {
+      id: 8,
+      title: "Upgrade Fasilitas Laboratorium Komputasi Statistika",
+      excerpt:
+        "STIS melakukan upgrade fasilitas laboratorium komputasi statistika dengan teknologi terkini untuk mendukung pembelajaran mahasiswa.",
+      content: "Dalam rangka meningkatkan kualitas pembelajaran...",
+      category: "Fasilitas",
+      author: "Tim Sarana Prasarana",
+      date: "15 Februari 2024",
+      readTime: "4 menit",
+      image: "/api/placeholder/600/400",
+      featured: false,
+      views: 634,
+      tags: ["Laboratorium", "Teknologi", "Fasilitas"],
+    },
+  ];
+
+  const filteredNews = newsArticles.filter((news) => {
+    const matchesSearch =
+      searchTerm === "" ||
+      news.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      news.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      news.tags.some((tag) =>
+        tag.toLowerCase().includes(searchTerm.toLowerCase()),
+      );
+
+    const matchesCategory =
+      selectedCategory === "Semua" || news.category === selectedCategory;
+
+    return matchesSearch && matchesCategory;
+  });
+
+  // Pagination logic
+  const totalPages = Math.ceil(filteredNews.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentNews = filteredNews.slice(startIndex, endIndex);
+
+  // Reset to page 1 when filters change
+  const handleFilterChange = (category: string) => {
+    setSelectedCategory(category);
+    setCurrentPage(1);
+  };
+
+  const handleSearchChange = (term: string) => {
+    setSearchTerm(term);
+    setCurrentPage(1);
+  };
+
+  const handleItemsPerPageChange = (items: number) => {
+    setItemsPerPage(items);
+    setCurrentPage(1);
+  };
+
+  const categories = [
+    { name: "Semua", count: newsArticles.length },
+    {
+      name: "Akademik",
+      count: newsArticles.filter((news) => news.category === "Akademik").length,
+    },
+    {
+      name: "Prestasi",
+      count: newsArticles.filter((news) => news.category === "Prestasi").length,
+    },
+    {
+      name: "Pendaftaran",
+      count: newsArticles.filter((news) => news.category === "Pendaftaran")
+        .length,
+    },
+    {
+      name: "Seminar",
+      count: newsArticles.filter((news) => news.category === "Seminar").length,
+    },
+  ];
+
+  const featuredNews = newsArticles.filter((news) => news.featured);
+  const popularNews = newsArticles
+    .sort((a, b) => b.views - a.views)
+    .slice(0, 5);
+
+  return (
+    <div className="min-h-screen bg-white">
+      <Navigation />
+
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-stis-orange-900 to-stis-orange-800 py-20">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="font-display font-bold text-4xl lg:text-6xl text-white mb-6">
+            Berita STIS
+          </h1>
+          <p className="text-xl text-orange-100 max-w-3xl mx-auto">
+            Informasi terkini seputar kegiatan, prestasi, dan perkembangan
+            Politeknik Statistika STIS
+          </p>
+        </div>
+      </section>
+
+      {/* Featured News */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="font-display font-bold text-3xl lg:text-4xl text-gray-900 mb-12 text-center">
+              Berita Utama
+            </h2>
+
+            {featuredNews.length > 0 && (
+              <div className="grid lg:grid-cols-3 gap-8 mb-16">
+                {/* Main Featured Article */}
+                <div className="lg:col-span-2">
+                  <Card
+                    className="overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+                    onClick={() =>
+                      (window.location.href = `/berita/${featuredNews[0].id}`)
+                    }
+                  >
+                    <div className="relative h-80 overflow-hidden">
+                      <img
+                        src={featuredNews[0].image}
+                        alt={featuredNews[0].title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                      <div className="absolute bottom-6 left-6 right-6">
+                        <span className="bg-stis-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold mb-3 inline-block">
+                          {featuredNews[0].category}
+                        </span>
+                        <h3 className="text-white font-bold text-2xl lg:text-3xl leading-tight mb-3">
+                          {featuredNews[0].title}
+                        </h3>
+                        <div className="flex items-center text-gray-200 text-sm space-x-4">
+                          <div className="flex items-center">
+                            <Calendar className="w-4 h-4 mr-1" />
+                            {featuredNews[0].date}
+                          </div>
+                          <div className="flex items-center">
+                            <Clock className="w-4 h-4 mr-1" />
+                            {featuredNews[0].readTime}
+                          </div>
+                          <div className="flex items-center">
+                            <Eye className="w-4 h-4 mr-1" />
+                            {featuredNews[0].views.toLocaleString()}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </Card>
+                </div>
+
+                {/* Side Featured Articles */}
+                <div className="space-y-6">
+                  {featuredNews.slice(1, 3).map((news, index) => (
+                    <Card
+                      key={news.id}
+                      className="overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                      onClick={() =>
+                        (window.location.href = `/berita/${news.id}`)
+                      }
+                    >
+                      <div className="flex">
+                        <div className="w-1/3 relative overflow-hidden">
+                          <img
+                            src={news.image}
+                            alt={news.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                        </div>
+                        <CardContent className="w-2/3 p-4">
+                          <span className="bg-stis-blue-100 text-stis-blue-800 px-2 py-1 rounded text-xs font-semibold mb-2 inline-block">
+                            {news.category}
+                          </span>
+                          <h4 className="font-bold text-lg text-gray-900 mb-2 group-hover:text-stis-orange-600 transition-colors line-clamp-2">
+                            {news.title}
+                          </h4>
+                          <div className="flex items-center text-gray-500 text-xs space-x-3">
+                            <span>{news.date}</span>
+                            <span>{news.readTime}</span>
+                          </div>
+                        </CardContent>
+                      </div>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Search and Filter */}
+      <section className="py-12 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <Card className="p-6">
+              <CardContent className="p-0">
+                <div className="flex flex-col lg:flex-row gap-6 items-center">
+                  {/* Search */}
+                  <div className="flex-1 w-full">
+                    <div className="relative">
+                      <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                      <Input
+                        type="text"
+                        placeholder="Cari berita, kategori, atau tag..."
+                        value={searchTerm}
+                        onChange={(e) => handleSearchChange(e.target.value)}
+                        className="pl-10 pr-4 py-3 w-full"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Category Filter */}
+                  <div className="flex items-center space-x-2">
+                    <Filter className="w-5 h-5 text-gray-500" />
+                    <span className="text-gray-700 font-medium whitespace-nowrap">
+                      Kategori:
+                    </span>
+                  </div>
+                </div>
+
+                {/* Category Buttons */}
+                <div className="flex flex-wrap gap-3 mt-6">
+                  {categories.map((category, index) => (
+                    <Button
+                      key={index}
+                      variant={
+                        selectedCategory === category.name
+                          ? "default"
+                          : "outline"
+                      }
+                      onClick={() => handleFilterChange(category.name)}
+                      className={`${
+                        selectedCategory === category.name
+                          ? "bg-stis-orange-600 hover:bg-stis-orange-700"
+                          : "border-stis-orange-600 text-stis-orange-600 hover:bg-stis-orange-600 hover:text-white"
+                      }`}
+                    >
+                      {category.name}
+                      <span className="ml-2 text-xs bg-white/20 px-2 py-1 rounded-full">
+                        {category.count}
+                      </span>
+                    </Button>
+                  ))}
+                </div>
+
+                {/* Search Results Info */}
+                {(searchTerm || selectedCategory !== "Semua") && (
+                  <div className="mt-4 p-3 bg-stis-orange-50 rounded-lg">
+                    <p className="text-stis-orange-800 text-sm">
+                      Menampilkan {filteredNews.length} dari{" "}
+                      {newsArticles.length} berita
+                      {searchTerm && ` untuk "${searchTerm}"`}
+                      {selectedCategory !== "Semua" &&
+                        ` dalam kategori "${selectedCategory}"`}
+                    </p>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-3 gap-12">
+              {/* News Articles */}
+              <div className="lg:col-span-2">
+                <div className="flex justify-between items-center mb-8">
+                  <h2 className="font-display font-bold text-2xl text-gray-900">
+                    Semua Berita
+                  </h2>
+                  <span className="text-gray-600 text-sm">
+                    {filteredNews.length} artikel
+                  </span>
+                </div>
+
+                {filteredNews.length === 0 ? (
+                  <div className="text-center py-16">
+                    <Search className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+                    <h3 className="text-xl font-medium text-gray-500 mb-2">
+                      Tidak ada berita ditemukan
+                    </h3>
+                    <p className="text-gray-400">
+                      Coba ubah kata kunci pencarian atau pilih kategori lain
+                    </p>
+                  </div>
+                ) : (
+                  <div className="space-y-8">
+                    {/* Items per page and pagination controls */}
+                    <div className="flex flex-col lg:flex-row justify-between items-center p-4 bg-gray-50 rounded-lg mb-6">
+                      <div className="flex items-center space-x-4 mb-4 lg:mb-0">
+                        <span className="text-sm text-gray-600">
+                          Tampilkan:
+                        </span>
+                        <div className="flex items-center space-x-2">
+                          {[5, 10, 25].map((count) => (
+                            <Button
+                              key={count}
+                              variant={
+                                itemsPerPage === count ? "default" : "outline"
+                              }
+                              size="sm"
+                              onClick={() => handleItemsPerPageChange(count)}
+                              className={
+                                itemsPerPage === count
+                                  ? "bg-stis-orange-600 hover:bg-stis-orange-700"
+                                  : ""
+                              }
+                            >
+                              {count}
+                            </Button>
+                          ))}
+                        </div>
+                        <span className="text-sm text-gray-600">
+                          berita per halaman
+                        </span>
+                      </div>
+                      <div className="text-sm text-gray-600">
+                        Menampilkan {startIndex + 1}-
+                        {Math.min(endIndex, filteredNews.length)} dari{" "}
+                        {filteredNews.length} berita
+                      </div>
+                    </div>
+
+                    {currentNews.map((news) => (
+                      <Card
+                        key={news.id}
+                        className="overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                      >
+                        <div className="flex flex-col md:flex-row">
+                          <div className="md:w-1/3 relative overflow-hidden h-48 md:h-auto">
+                            <img
+                              src={news.image}
+                              alt={news.title}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                          </div>
+                          <CardContent className="md:w-2/3 p-6">
+                            <div className="flex items-center space-x-3 mb-3">
+                              <span className="bg-stis-orange-100 text-stis-orange-800 px-3 py-1 rounded-full text-sm font-semibold">
+                                {news.category}
+                              </span>
+                              <div className="flex items-center text-gray-500 text-sm space-x-3">
+                                <div className="flex items-center">
+                                  <Calendar className="w-4 h-4 mr-1" />
+                                  {news.date}
+                                </div>
+                                <div className="flex items-center">
+                                  <Eye className="w-4 h-4 mr-1" />
+                                  {news.views.toLocaleString()}
+                                </div>
+                              </div>
+                            </div>
+                            <h3 className="font-bold text-xl text-gray-900 mb-3 group-hover:text-stis-orange-600 transition-colors">
+                              {news.title}
+                            </h3>
+                            <p className="text-gray-600 mb-4 leading-relaxed">
+                              {news.excerpt}
+                            </p>
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center space-x-2">
+                                <User className="w-4 h-4 text-gray-400" />
+                                <span className="text-sm text-gray-600">
+                                  {news.author}
+                                </span>
+                                <span className="text-gray-400">•</span>
+                                <span className="text-sm text-gray-600">
+                                  {news.readTime}
+                                </span>
+                              </div>
+                              <div className="flex items-center space-x-2">
+                                <Button
+                                  size="sm"
+                                  variant="ghost"
+                                  className="text-stis-orange-600 hover:text-stis-orange-700"
+                                >
+                                  <Share2 className="w-4 h-4" />
+                                </Button>
+                                <Button
+                                  size="sm"
+                                  className="bg-stis-orange-600 hover:bg-stis-orange-700"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    window.location.href = `/berita/${news.id}`;
+                                  }}
+                                >
+                                  Baca Selengkapnya
+                                  <ArrowRight className="ml-2 w-4 h-4" />
+                                </Button>
+                              </div>
+                            </div>
+                            <div className="flex flex-wrap gap-2 mt-4">
+                              {news.tags.map((tag, index) => (
+                                <span
+                                  key={index}
+                                  className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                                >
+                                  <Tag className="w-3 h-3 inline mr-1" />
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
+                          </CardContent>
+                        </div>
+                      </Card>
+                    ))}
+
+                    {/* Pagination */}
+                    {totalPages > 1 && (
+                      <div className="flex justify-center items-center space-x-2 mt-8 p-4">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => setCurrentPage(currentPage - 1)}
+                          disabled={currentPage === 1}
+                          className="disabled:opacity-50 border-stis-orange-600 text-stis-orange-600 hover:bg-stis-orange-600 hover:text-white"
+                        >
+                          ← Sebelumnya
+                        </Button>
+
+                        <div className="flex items-center space-x-1">
+                          {Array.from(
+                            { length: Math.min(totalPages, 7) },
+                            (_, i) => {
+                              let page;
+                              if (totalPages <= 7) {
+                                page = i + 1;
+                              } else {
+                                if (currentPage <= 4) {
+                                  page = i + 1;
+                                } else if (currentPage >= totalPages - 3) {
+                                  page = totalPages - 6 + i;
+                                } else {
+                                  page = currentPage - 3 + i;
+                                }
+                              }
+
+                              return (
+                                <Button
+                                  key={page}
+                                  variant={
+                                    currentPage === page ? "default" : "outline"
+                                  }
+                                  size="sm"
+                                  onClick={() => setCurrentPage(page)}
+                                  className={
+                                    currentPage === page
+                                      ? "bg-stis-orange-600 hover:bg-stis-orange-700"
+                                      : "border-stis-orange-600 text-stis-orange-600 hover:bg-stis-orange-600 hover:text-white"
+                                  }
+                                >
+                                  {page}
+                                </Button>
+                              );
+                            },
+                          )}
+                        </div>
+
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => setCurrentPage(currentPage + 1)}
+                          disabled={currentPage === totalPages}
+                          className="disabled:opacity-50 border-stis-orange-600 text-stis-orange-600 hover:bg-stis-orange-600 hover:text-white"
+                        >
+                          Selanjutnya →
+                        </Button>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+
+              {/* Sidebar */}
+              <div className="space-y-8">
+                {/* Popular News */}
+                <Card className="p-6">
+                  <CardHeader className="p-0 mb-6">
+                    <CardTitle className="flex items-center text-xl">
+                      <TrendingUp className="w-6 h-6 text-stis-orange-600 mr-2" />
+                      Berita Populer
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-0">
+                    <div className="space-y-4">
+                      {popularNews.map((news, index) => (
+                        <div
+                          key={news.id}
+                          className="flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors"
+                          onClick={() =>
+                            (window.location.href = `/berita/${news.id}`)
+                          }
+                        >
+                          <span className="bg-stis-orange-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
+                            {index + 1}
+                          </span>
+                          <div className="flex-1 min-w-0">
+                            <h4 className="font-medium text-gray-900 text-sm line-clamp-2 mb-1">
+                              {news.title}
+                            </h4>
+                            <div className="flex items-center text-xs text-gray-500 space-x-2">
+                              <span>{news.date}</span>
+                              <span>•</span>
+                              <span>{news.views.toLocaleString()} views</span>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Categories */}
+                <Card className="p-6">
+                  <CardHeader className="p-0 mb-6">
+                    <CardTitle className="text-xl">Kategori Berita</CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-0">
+                    <div className="space-y-3">
+                      {categories.slice(1).map((category, index) => (
+                        <div
+                          key={index}
+                          className="flex items-center justify-between p-3 rounded-lg hover:bg-stis-orange-50 cursor-pointer transition-colors"
+                          onClick={() => setSelectedCategory(category.name)}
+                        >
+                          <span className="text-gray-700 font-medium">
+                            {category.name}
+                          </span>
+                          <div className="flex items-center space-x-2">
+                            <span className="bg-stis-orange-100 text-stis-orange-800 px-2 py-1 rounded text-xs font-semibold">
+                              {category.count}
+                            </span>
+                            <ChevronRight className="w-4 h-4 text-gray-400" />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-4 gap-8">
+            <div className="lg:col-span-2">
+              <div className="flex items-center space-x-4 mb-6">
+                <div className="w-12 h-12 bg-stis-blue-600 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-xl">S</span>
+                </div>
+                <div>
+                  <h3 className="font-display font-bold text-xl">
+                    Politeknik Statistika STIS
+                  </h3>
+                  <p className="text-gray-400">Sekolah Tinggi Ilmu Statistik</p>
+                </div>
+              </div>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                Politeknik Statistika STIS adalah institusi pendidikan tinggi
+                yang mengkhususkan diri dalam bidang statistik dan komputasi
+                statistik.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="font-bold text-lg mb-4">Program Studi</h4>
+              <ul className="space-y-2 text-gray-300">
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    D3 Statistika
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    D4 Statistika
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    D4 Komputasi Statistika
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-bold text-lg mb-4">Kontak</h4>
+              <ul className="space-y-2 text-gray-300">
+                <li>Jl. Otto Iskandardinata No.64C</li>
+                <li>Jakarta Timur 13330</li>
+                <li>Telepon: (021) 8191437</li>
+                <li>Email: info@stis.ac.id</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+            <p>
+              &copy; 2024 Politeknik Statistika STIS. Seluruh hak cipta
+              dilindungi.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
