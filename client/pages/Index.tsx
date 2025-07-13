@@ -85,28 +85,28 @@ export default function Index() {
 
   const news = [
     {
-      title: "Workshop Machine Learning untuk Mahasiswa",
+      title: "BPS Dorong Revolusi Data, Targetkan Peringkat 20 NSO Terbaik Dunia",
       excerpt:
-        "STIS mengadakan workshop intensif Machine Learning dengan pembicara dari industri teknologi terkemuka.",
-      date: "25 Maret 2024",
-      category: "Workshop",
-      image: "/api/placeholder/300/200",
+        "Politeknik Statistika STIS menyelenggarakan kuliah umum bertajuk “Driving Data Revolution: Modernizing Official Statistics for Better Decision Making”",
+      date: "23 Juni 2025",
+      category: "Seminar",
+      image: "/kulum.png",
     },
     {
-      title: "Kunjungan Industri ke BPS Provinsi DKI Jakarta",
+      title: "Kegiatan Praktikum Official Statistics dan Laboratorium Survei",
       excerpt:
-        "Mahasiswa semester akhir melakukan kunjungan industri untuk memahami praktik statistik di lapangan.",
-      date: "22 Maret 2024",
+        "Program Studi Diploma III Statistika Politeknik Statistika STIS menyelenggarakan kegiatan Praktikum Official Statistics dan Laboratorium Survei (praktikum ubinan) di Sawah Abadi Jakarta Timur pada Rabu (11/6).",
+      date: "12 Juni 2025",
       category: "Akademik",
-      image: "/api/placeholder/300/200",
+      image: "/ubinan.png",
     },
     {
-      title: "Launching Program Magang Bersertifikat",
+      title: "Call for Papers – ICDSOS 2025 The 3rd International Conference on Data Science and Official Statistics ",
       excerpt:
-        "STIS meluncurkan program magang bersertifikat bekerjasama dengan berbagai instansi pemerintah dan swasta.",
-      date: "18 Maret 2024",
+        "Politeknik Statistika STIS proudly presents ICDSOS 2025 Politeknik Statistika STIS proudly presents ICDSOS 2025, an international conference with the theme: “From Data to Impact: Leveraging Innovation in Data Science and Official Statistics for Data-Driven Policy Making and Global Competitiveness.”",
+      date: "4 Juni 2025",
       category: "Pengumuman",
-      image: "/api/placeholder/300/200",
+      image: "/icdsos.png",
     },
   ];
 
@@ -322,6 +322,7 @@ export default function Index() {
                 Informasi terkini seputar kegiatan STIS
               </p>
             </div>
+            <Link to="/berita">
             <Button
               variant="outline"
               className="border-stis-blue-600 text-stis-blue-600 hover:bg-stis-blue-600 hover:text-white"
@@ -329,6 +330,7 @@ export default function Index() {
               Lihat Semua Berita
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
+            </Link>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
@@ -338,6 +340,11 @@ export default function Index() {
                 className="overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group"
               >
                 <div className="relative h-48 bg-gradient-to-br from-gray-200 to-gray-300">
+                  <img
+                      src={article.image}
+                      alt={article.title}
+                      className="w-full h-full object-cover"
+                    />
                   <div className="absolute top-4 left-4">
                     <span className="bg-stis-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
                       {article.category}
