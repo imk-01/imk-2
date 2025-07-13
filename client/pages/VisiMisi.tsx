@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Target, Eye, Heart, Trophy } from "lucide-react";
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 
 export default function VisiMisi() {
   return (

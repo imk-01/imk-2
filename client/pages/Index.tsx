@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import NewsCarousel from "@/components/NewsCarousel";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 import {
   Calendar,
   Users,

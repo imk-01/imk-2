@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 import { useState } from "react";
 import {
   FileText,

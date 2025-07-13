@@ -1,6 +1,6 @@
 import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 import {
   Users,
   Award,

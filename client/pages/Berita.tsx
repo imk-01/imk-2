@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 import {
   Calendar,
   User,

@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { Flag, Ruler, Palette, Award } from "lucide-react";
-import Footer from "@/components/footer"
+import Footer from "@/components/Footer"
 
 export default function Bendera() {
   return (
