@@ -29,7 +29,7 @@ export default function NewsCarousel() {
     },
     {
       id: 2,
-      title: "Pembukaan Pendaftaran Mahasiswa Baru STIS 2025/2026",
+      title: "Pembukaan Pendaftaran Mahasiswa Baru Polstat STIS 2025/2026",
       excerpt:
         "Pendaftaran mahasiswa baru untuk tahun akademik 2025/2026 resmi dibuka dengan sistem seleksi yang komprehensif dan transparan.",
       image: "/pmb.png",

@@ -19,6 +19,9 @@ import {
   UserCheck,
   MessageSquare,
   School,
+  BadgeCheck,
+  GraduationCapIcon,
+  Building2
 } from "lucide-react";
 
 export default function Index() {
@@ -56,7 +59,7 @@ export default function Index() {
         "Program Diploma 3 Statistika yang mempersiapkan tenaga ahli statistik yang kompeten di bidang pengumpulan, pengolahan, dan analisis data.",
       duration: "3 Tahun",
       accreditation: "A",
-      image: "/api/placeholder/400/250",
+      image: "/d3.jpg",
     },
     {
       title: "D4 Statistika",
@@ -126,24 +129,24 @@ export default function Index() {
       color: "bg-stis-orange-600",
     },
     {
-      title: "Download Center",
-      description: "Unduh formulir dan dokumen penting",
-      icon: Download,
-      href: "/layanan/download",
+      title: "Sertifikasi Kompetensi Data Scientist",
+      description: "Uji Kompetensi Sertifikasi Ilmuwan Data (Data Scientist)",
+      icon: BadgeCheck,
+      href: "https://layanan.stis.ac.id/layanan/26",
       color: "bg-stis-blue-700",
     },
     {
-      title: "Berikan Feedback",
-      description: "Sampaikan saran dan masukan untuk STIS",
-      icon: MessageSquare,
-      href: "/feedback",
+      title: "Sertifikasi Kompetensi Associate Data Scientist",
+      description: "Uji Kompetensi Sertifikasi Ilmuwan Data Madya (Associate Data Scientist)",
+      icon: GraduationCapIcon,
+      href: "https://layanan.stis.ac.id/layanan/27",
       color: "bg-purple-600",
     },
     {
-      title: "Webinar",
-      description: "Ikuti webinar dan seminar online",
-      icon: UserCheck,
-      href: "/layanan/webinar",
+      title: "Permohonan Kunjungan Eksternal",
+      description: "Kegiatan Kunjungan Eksternal",
+      icon: Building2,
+      href: "https://layanan.stis.ac.id/layanan/5",
       color: "bg-indigo-600",
     },
   ];
