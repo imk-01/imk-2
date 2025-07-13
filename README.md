@@ -1,4 +1,5 @@
-# redesign-web-stis1. Install Node.js
+# redesign-web-stis
+1. Install Node.js
 2. Gunakan vscode, buka terminal, terminal cek:
    node -v
    npm -v
