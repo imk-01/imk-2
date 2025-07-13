@@ -69,7 +69,7 @@ export default function Index() {
         "Program Diploma 4 Statistika yang menghasilkan sarjana terapan dengan keahlian mendalam dalam metodologi statistik dan aplikasinya.",
       duration: "4 Tahun",
       accreditation: "A",
-      image: "/api/placeholder/400/250",
+      image: "/st.png",
       href: "/akademik/div-statistika"
     },
     {
@@ -78,7 +78,7 @@ export default function Index() {
         "Program yang menggabungkan ilmu statistik dengan teknologi komputasi untuk menghasilkan data scientist yang handal.",
       duration: "4 Tahun",
       accreditation: "A",
-      image: "/api/placeholder/400/250",
+      image: "/ks.png",
       href: "/akademik/div-komputasi"
     },
   ];
@@ -265,6 +265,11 @@ export default function Index() {
               >
                 <div className="relative h-48 bg-gradient-to-br from-stis-blue-500 to-stis-blue-700">
                   <div className="absolute inset-0 bg-black/20"></div>
+                    <img
+                      src={program.image}
+                      alt={program.title}
+                      className="w-full h-full object-cover"
+                    />
                   <div className="absolute bottom-4 left-4 right-4">
                     <div className="flex justify-between items-end">
                       <div>
