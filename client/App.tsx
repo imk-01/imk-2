@@ -1,11 +1,13 @@
 import "./global.css";
 
+
 import { Toaster } from "@/components/ui/toaster";
 import { createRoot } from "react-dom/client";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AutoScrollToTop from "@/components/AutoScrollToTop";
 import HelpdeskButton from "@/components/HelpdeskButton";
 import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
@@ -41,6 +43,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <AutoScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/profil/lambang" element={<Lambang />} />

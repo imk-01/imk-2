@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import NewsCarousel from "@/components/NewsCarousel";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Footer from "@/components/Footer";
@@ -60,6 +61,7 @@ export default function Index() {
       duration: "3 Tahun",
       accreditation: "A",
       image: "/d3.jpg",
+      href: "/akademik/diii-statistika"
     },
     {
       title: "D4 Statistika",
@@ -68,6 +70,7 @@ export default function Index() {
       duration: "4 Tahun",
       accreditation: "A",
       image: "/api/placeholder/400/250",
+      href: "/akademik/div-statistika"
     },
     {
       title: "D4 Komputasi Statistika",
@@ -76,6 +79,7 @@ export default function Index() {
       duration: "4 Tahun",
       accreditation: "A",
       image: "/api/placeholder/400/250",
+      href: "/akademik/div-komputasi"
     },
   ];
 
@@ -285,6 +289,7 @@ export default function Index() {
                   <p className="text-gray-600 mb-6 leading-relaxed">
                     {program.description}
                   </p>
+                  <Link to={program.href}>
                   <Button
                     variant="outline"
                     className="w-full border-stis-blue-600 text-stis-blue-600 hover:bg-stis-blue-600 hover:text-white"
@@ -292,6 +297,7 @@ export default function Index() {
                     Pelajari Lebih Lanjut
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
+                  </Link>
                 </CardContent>
               </Card>
             ))}
