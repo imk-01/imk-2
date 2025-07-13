@@ -108,21 +108,21 @@ export default function Index() {
       title: "Daftar STIS",
       description: "Pendaftaran mahasiswa baru Polstat STIS",
       icon: School,
-      href: "/spmb-2025",
+      href: "https://spmb.stis.ac.id",
       color: "bg-stis-blue-600",
     },
     {
-      title: "Legalisir Dokumen",
-      description: "Layanan legalisir ijazah dan transkrip",
+      title: "Permohonan Kerjasama",
+      description: "Naskah perjanjian kerja sama",
       icon: FileText,
-      href: "/layanan/legalisir",
+      href: "https://layanan.stis.ac.id/layanan/2",
       color: "bg-stis-green-600",
     },
     {
-      title: "Perpustakaan Digital",
+      title: "Peminjaman Bahan Pustaka",
       description: "Akses koleksi buku dan jurnal online",
       icon: BookOpen,
-      href: "/layanan/simpus",
+      href: "https://layanan.stis.ac.id/layanan/13",
       color: "bg-stis-orange-600",
     },
     {
@@ -163,7 +163,7 @@ export default function Index() {
               Statistik Kampus
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Pencapaian Politeknik Statistika STIS dalam angka
+              Politeknik Statistika STIS dalam angka
             </p>
           </div>
 
@@ -207,6 +207,13 @@ export default function Index() {
             {quickServices.map((service, index) => {
               const Icon = service.icon;
               return (
+                <a
+                  href={service.href}
+                  target={service.href.startsWith("http") ? "_blank" : undefined}
+                  rel={service.href.startsWith("https") ? "noopener noreferrer" : undefined}
+                  key={index}
+                  className="block group"
+                >
                 <Card
                   key={index}
                   className="hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group"
@@ -227,6 +234,7 @@ export default function Index() {
                     </div>
                   </CardContent>
                 </Card>
+              </a>
               );
             })}
           </div>
@@ -237,13 +245,9 @@ export default function Index() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="font-display font-bold text-3xl lg:text-4xl text-gray-900 mb-4">
+            <h2 className="font-display font-bold text-3xl lg:text-4xl text-gray-900 mb-2">
               Program Studi
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Pilih program studi yang sesuai dengan minat dan bakat Anda untuk
-              berkarir di bidang statistik
-            </p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
