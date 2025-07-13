@@ -27,47 +27,47 @@ export default function Berita() {
   const newsArticles = [
     {
       id: 1,
-      title: "Polstat STIS Raih Akreditasi A untuk Semua Program Studi",
+      title: "Polstat STIS Raih Akreditasi Unggul untuk Semua Program Studi",
       excerpt:
-        "Politeknik Statistika STIS berhasil mempertahankan akreditasi A dari BAN-PT untuk ketiga program studinya, membuktikan komitmen terhadap kualitas pendidikan statistik.",
+        "Politeknik Statistika STIS berhasil meraih akreditasi Unggul dari LAMSAMA untuk ketiga program studinya, membuktikan komitmen terhadap kualitas pendidikan statistik.",
       content:
-        "Dalam penilaian terbaru dari Badan Akreditasi Nasional Perguruan Tinggi (BAN-PT)...",
+        "Ketiga program studi tersebut, yaitu DIV Komputasi Statistik, DIV Statistika, dan DIII Statistika, ...",
       category: "Akademik",
-      author: "Tim Redaksi STIS",
-      date: "20 Maret 2024",
+      author: "Humas STIS",
+      date: "14 April 2025",
       readTime: "5 menit",
-      image: "/api/placeholder/600/400",
+      image: "/akreditasi.png",
       featured: true,
       views: 1250,
-      tags: ["Akreditasi", "BAN-PT", "Program Studi"],
+      tags: ["Akreditasi", "LAMSAMA", "Program Studi"],
     },
     {
       id: 2,
-      title: "Pembukaan Pendaftaran Mahasiswa Baru STIS 2024/2025",
+      title: "Pembukaan Pendaftaran Mahasiswa Baru Polstat STIS 2025/2026",
       excerpt:
-        "Pendaftaran mahasiswa baru untuk tahun akademik 2024/2025 resmi dibuka dengan sistem seleksi yang komprehensif dan transparan.",
+        "Pendaftaran mahasiswa baru untuk tahun akademik 2025/2026 resmi dibuka dengan sistem seleksi yang komprehensif dan transparan.",
       content:
         "Politeknik Statistika STIS membuka pendaftaran mahasiswa baru...",
       category: "Pendaftaran",
       author: "Panitia PMB",
-      date: "15 Maret 2024",
+      date: "26 Juni 2025",
       readTime: "3 menit",
-      image: "/api/placeholder/600/400",
+      image: "/pmb.png",
       featured: true,
       views: 2100,
       tags: ["PMB", "Pendaftaran", "Mahasiswa Baru"],
     },
     {
       id: 3,
-      title: "Seminar Nasional Big Data Analytics dan Machine Learning",
+      title: "Worskhop on Machine Learning For Official Statistics",
       excerpt:
-        "STIS mengadakan seminar nasional dengan tema Big Data Analytics dan Machine Learning yang dihadiri oleh pakar dari berbagai universitas terkemuka.",
+        "Diselenggarakan oleh Statistik Indonesia (BPS), United Nation Statistics Division (UNSD), Statistik Institute for Asia dan Pacific (SIAP) yang difasilitasi oleh Regional Hub Indonesia, workshop ini bertujuan untuk meningkatkan kemampuan statistik melalui teknik Machine Learning.",
       content: "Dalam era digital yang berkembang pesat...",
       category: "Seminar",
-      author: "Dr. Ir. Ahmad Fauzi",
-      date: "10 Maret 2024",
+      author: "Humas STIS",
+      date: "13 Februari 2025",
       readTime: "4 menit",
-      image: "/api/placeholder/600/400",
+      image: "/workshop.png",
       featured: false,
       views: 856,
       tags: ["Big Data", "Machine Learning", "Seminar"],
@@ -217,7 +217,7 @@ export default function Berita() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-stis-orange-900 to-stis-orange-800 py-20">
+      <section className="bg-gradient-to-r from-stis-blue-900 to-stis-blue-800 py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="font-display font-bold text-4xl lg:text-6xl text-white mb-6">
             Berita STIS
