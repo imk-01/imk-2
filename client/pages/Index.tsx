@@ -57,27 +57,27 @@ export default function Index() {
     {
       title: "D3 Statistika",
       description:
-        "Program Diploma 3 Statistika yang mempersiapkan tenaga ahli statistik yang kompeten di bidang pengumpulan, pengolahan, dan analisis data.",
+        "Pendidikan vokasi yang berkualitas dalam rangka menghasilkan lulusan yang unggul dalam manajemen kegiatan statistika di lapangan, melaksanakan quality control kegiatan official statistics di lapangan, memetakan wilayah kerja statistik, dan melakukan analisis data official statistics sesuai dengan perkembangan Teknologi, Informasi dan Komunikasi (TIK).",
       duration: "3 Tahun",
-      accreditation: "A",
-      image: "/d3.jpg",
+      accreditation: "Unggul",
+      image: "/d3.png",
       href: "/akademik/diii-statistika"
     },
     {
       title: "D4 Statistika",
       description:
-        "Program Diploma 4 Statistika yang menghasilkan sarjana terapan dengan keahlian mendalam dalam metodologi statistik dan aplikasinya.",
+        "Pendidikan dan pengajaran untuk menghasilkan ahli statistika terapan, khususnya official statistics, yang berkualitas dalam rangka menghasilkan lulusan yang unggul dalam perancangan survei dan sensus, analisis data, ilmuwan data pemerintahan dan penjaminan kualitas data.",
       duration: "4 Tahun",
-      accreditation: "A",
+      accreditation: "Unggul",
       image: "/st.png",
       href: "/akademik/div-statistika"
     },
     {
       title: "D4 Komputasi Statistika",
       description:
-        "Program yang menggabungkan ilmu statistik dengan teknologi komputasi untuk menghasilkan data scientist yang handal.",
+        "Program studi yang berkualitas dan unggul di bidang komputasi statistik, khususnya untuk menghasilkan statistik resmi negara (official statistics), sesuai dengan perkembangan sains dan teknologi yang memberikan kontribusi nyata terhadap Sistem Statistik Nasional maupun Internasional.",
       duration: "4 Tahun",
-      accreditation: "A",
+      accreditation: "Unggul",
       image: "/ks.png",
       href: "/akademik/div-komputasi"
     },

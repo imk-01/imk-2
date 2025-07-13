@@ -47,17 +47,17 @@ const Footer = () => {
               <h4 className="font-bold text-lg mb-4">Program Studi</h4>
               <ul className="space-y-2 text-gray-300">
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="/akademik/diii-statistika" className="hover:text-white transition-colors">
                     D3 Statistika
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="/akademik/div-statistika" className="hover:text-white transition-colors">
                     D4 Statistika
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="/akademik/div-komputasi" className="hover:text-white transition-colors">
                     D4 Komputasi Statistika
                   </a>
                 </li>
