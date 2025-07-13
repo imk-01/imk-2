@@ -356,21 +356,28 @@ export default function Index() {
               Siap Menjadi Bagian dari STIS?
             </h2>
             <p className="text-xl text-stis-blue-100 mb-8 leading-relaxed">
-              Bergabunglah dengan ribuan alumni STIS yang telah berkarir sukses
-              di berbagai instansi pemerintah dan swasta di seluruh Indonesia.
+              Bergabunglah menjadi bagian dari Politeknik Statistika STIS.
             </p>
-            <div className="flex justify-center">
-              <Button
-                size="lg"
-                className="bg-stis-orange-500 hover:bg-stis-orange-600 text-white px-8 py-4 text-lg font-semibold"
-              >
-                Daftar Sekarang
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <div className="flex justify-center">
+        <Button
+          asChild
+          size="lg"
+          className="bg-stis-orange-500 hover:bg-stis-orange-600 text-white px-8 py-4 text-lg font-semibold"
+        >
+          <a
+            href="https://spmb.stis.ac.id"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center"
+          >
+            Daftar Sekarang
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </a>
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>
 
       <Footer />
     </div>
