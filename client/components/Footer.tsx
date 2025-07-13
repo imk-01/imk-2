@@ -70,7 +70,7 @@ const Footer = () => {
                 <li>Jl. Otto Iskandardinata No.64C</li>
                 <li>Jakarta Timur 13330</li>
                 <li>Telepon: (021) 8191437</li>
-                <li>Email: info@stis.ac.id</li>
+                <li>Email: humas@stis.ac.id</li>
               </ul>
             </div>
           </div>
