@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Footer from "@/components/Footer";
+import { beritaList } from "@/data/berita";
+import { useNavigate } from "react-router-dom";
 import {
   Calendar,
   Users,
@@ -26,6 +28,19 @@ import {
 } from "lucide-react";
 
 export default function Index() {
+  const navigate = useNavigate();
+  const news = beritaList.filter((item) =>
+    [6, 7, 8].includes(Number(item.id))
+  );
+
+    const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString("id-ID", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  }; 
+
   const stats = [
     {
       number: "66",
@@ -83,7 +98,7 @@ export default function Index() {
     },
   ];
 
-  const news = [
+  /*const news = [
     {
       title: "BPS Dorong Revolusi Data, Targetkan Peringkat 20 NSO Terbaik Dunia",
       excerpt:
@@ -108,7 +123,7 @@ export default function Index() {
       category: "Pengumuman",
       image: "/icdsos.png",
     },
-  ];
+  ];*/
 
   const quickServices = [
     {
@@ -354,15 +369,17 @@ export default function Index() {
 
                 <CardContent className="p-6">
                   <div className="text-sm text-gray-500 mb-2">
-                    {article.date}
+                    {formatDate(article.publishedAt)}
                   </div>
-                  <h3 className="font-bold text-lg text-gray-900 mb-3 group-hover:text-stis-blue-600 transition-colors line-clamp-2">
+                  <h3 className="font-bold text-lg text-gray-900 mb-3 group-hover:text-stis-blue-600 transition-colors line-clamp-2"
+                  onClick={() => navigate(`/berita/${article.id}`)}>
                     {article.title}
                   </h3>
                   <p className="text-gray-600 line-clamp-3 leading-relaxed">
                     {article.excerpt}
                   </p>
-                  <div className="mt-4 flex items-center text-stis-blue-600 font-semibold group-hover:text-stis-blue-700">
+                  <div className="mt-4 flex items-center text-stis-blue-600 font-semibold group-hover:text-stis-blue-700"
+                  onClick={() => navigate(`/berita/${article.id}`)}>
                     Baca Selengkapnya
                     <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>

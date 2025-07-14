@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
+import { beritaList } from "@/data/berita";
+import { useNavigate } from "react-router-dom";
 interface NewsItem {
   id: number;
   title: string;
@@ -15,8 +16,17 @@ interface NewsItem {
 export default function NewsCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const newsItems = beritaList.slice(0, 5);
+  const navigate = useNavigate();
+  const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString("id-ID", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  }; 
 
-  const newsItems: NewsItem[] = [
+  /*const newsItems: NewsItem[] = [
     {
       id: 1,
       title: "Polstat STIS Raih Akreditasi Unggul untuk Semua Program Studi",
@@ -67,7 +77,7 @@ export default function NewsCarousel() {
       category: "Kerjasama",
       slug: "kerjasama-stis-kemenko-pmk",
     },
-  ];
+  ];*/
 
   useEffect(() => {
     if (!isAutoPlaying) return;
@@ -124,7 +134,7 @@ export default function NewsCarousel() {
                 </span>
                 <div className="flex items-center text-stis-blue-200 text-sm">
                   <Calendar className="w-4 h-4 mr-2" />
-                  {currentNews.date}
+                  {formatDate(currentNews.publishedAt)}
                 </div>
               </div>
 
@@ -138,6 +148,7 @@ export default function NewsCarousel() {
 
               <Button
                 size="lg"
+                onClick={() => navigate(`/berita/${currentNews.id}`)}
                 className="bg-stis-blue-600 hover:bg-stis-blue-700 text-white px-8 py-4 text-lg font-semibold"
               >
                 Baca Selengkapnya
@@ -226,10 +237,11 @@ export default function NewsCarousel() {
                   </div>
                 </div>
                 <div className="p-4">
-                  <h4 className="font-medium text-sm text-gray-900 line-clamp-2 mb-2 group-hover:text-stis-blue-600 transition-colors">
+                  <h4 className="font-medium text-sm text-gray-900 line-clamp-2 mb-2 group-hover:text-stis-blue-600 transition-colors"
+                  onClick={() => navigate(`/berita/${item.id}`)}>
                     {item.title}
                   </h4>
-                  <p className="text-xs text-gray-500">{item.date}</p>
+                  <p className="text-xs text-gray-500">{formatDate(item.publishedAt)}</p>
                 </div>
               </div>
             ))}
