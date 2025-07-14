@@ -19,6 +19,8 @@ const HelpdeskButton: React.FC = () => {
     message: "",
   });
 
+  const [showSuccess, setShowSuccess] = useState(false);
+
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -35,9 +37,8 @@ const HelpdeskButton: React.FC = () => {
     e.preventDefault();
     // Handle form submission here
     console.log("Helpdesk form submitted:", formData);
-    alert(
-      "Terima kasih! Pesan Anda telah dikirim. Tim kami akan segera merespons.",
-    );
+    setShowSuccess(true); // tampilkan notifikasi
+    setTimeout(() => setShowSuccess(false), 3000); // hilangkan setelah 3 detik
     setIsModalOpen(false);
     setFormData({
       name: "",
@@ -72,6 +73,32 @@ const HelpdeskButton: React.FC = () => {
           </div>
         </div>
       </button>
+
+      {showSuccess && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
+          <div className="bg-white rounded-xl shadow-2xl px-6 py-4 flex items-center space-x-3 animate-fadeInUp border border-green-400">
+            <div className="bg-green-500 text-white rounded-full p-3 mb-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+            </div>
+            <span className="text-green-700 font-semibold mb-1">
+              Terima kasih! Pesan Anda telah dikirim. Tim kami akan segera merespons.
+            </span>
+          </div>
+        </div>
+      )}
 
       {/* Modal Overlay */}
       {isModalOpen && (
