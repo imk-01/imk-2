@@ -51,7 +51,7 @@ export default function NewsCarousel() {
       id: 4,
       title: "Mahasiswa Politeknik Statistika STIS Juara 1 Olimpiade Statistika",
       excerpt:
-        "Tim mahasiswa STIS berhasil meraih juara 1 dalam Olimpiade Satistika tingkat nasional pada kegiatan Dokter Data 2024 yang diselenggarakan oleh Universitas Diponegoro .",
+        "Tim mahasiswa STIS berhasil meraih juara 1 dalam Olimpiade Satistika tingkat nasional pada kegiatan Dokter Data 2024 yang diselenggarakan oleh Universitas Diponegoro.",
       image: "/Prestasi.png",
       date: "21 Maret 2025",
       category: "Prestasi",

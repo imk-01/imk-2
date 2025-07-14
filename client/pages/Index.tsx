@@ -28,13 +28,13 @@ import {
 export default function Index() {
   const stats = [
     {
-      number: "60+",
+      number: "66",
       label: "Tahun Pengalaman",
       icon: Calendar,
       color: "text-stis-blue-600",
     },
     {
-      number: "5000+",
+      number: "9784",
       label: "Alumni",
       icon: Users,
       color: "text-stis-green-600",
@@ -46,7 +46,7 @@ export default function Index() {
       color: "text-stis-orange-600",
     },
     {
-      number: "95%",
+      number: "97%",
       label: "Tingkat Kelulusan",
       icon: BarChart3,
       color: "text-stis-blue-600",

@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { beritaList } from "@/data/berita";
 import {
   ArrowLeft,
   Calendar,
@@ -19,9 +20,26 @@ import { useParams, useNavigate } from "react-router-dom";
 export default function BeritaDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const berita = beritaList.find((item) => item.id === id);
+
+  if (!berita) {
+  return (
+    <div className="p-8 text-center text-gray-600">
+      <h2 className="text-2xl font-semibold">Berita tidak ditemukan</h2>
+      <p className="mt-2">ID berita tidak valid atau tidak tersedia.</p>
+      <Button onClick={() => navigate("/berita")} className="mt-4">
+        Kembali ke Berita
+      </Button>
+    </div>
+  );
+}
+
+const relatedNews = beritaList
+  .filter((item) => item.id !== id && item.category === berita.category)
+  .slice(0, 3);
 
   // Sample news data - in real app this would come from API
-  const newsData = {
+  /*const newsData = {
     id: id || "1",
     title:
       "STIS Meraih Akreditasi A dari BAN-PT untuk Program Studi Statistika",
@@ -86,7 +104,7 @@ export default function BeritaDetail() {
         category: "Kerjasama",
       },
     ],
-  };
+  };*/
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString("id-ID", {
@@ -100,7 +118,7 @@ export default function BeritaDetail() {
 
   const handleShare = async (platform: string) => {
     const url = window.location.href;
-    const title = newsData.title;
+    const title = berita.title;
 
     switch (platform) {
       case "facebook":
@@ -127,6 +145,20 @@ export default function BeritaDetail() {
         break;
     }
   };
+
+const categoryCounts = beritaList.reduce<Record<string, number>>((acc, item) => {
+  acc[item.category] = (acc[item.category] || 0) + 1;
+  return acc;
+}, {});
+
+const categories = [
+  { name: "Semua", count: beritaList.length },
+  ...Object.entries(categoryCounts).map(([name, count]) => ({
+    name,
+    count,
+  })),
+];
+
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -164,28 +196,28 @@ export default function BeritaDetail() {
               <div className="p-6 border-b">
                 <div className="flex items-center space-x-2 text-sm text-gray-600 mb-4">
                   <span className="bg-stis-blue-100 text-stis-blue-800 px-2 py-1 rounded-full text-xs font-medium">
-                    {newsData.category}
+                    {berita.category}
                   </span>
                   <span>•</span>
                   <div className="flex items-center space-x-1">
                     <Calendar size={14} />
-                    <span>{formatDate(newsData.publishedAt)}</span>
+                    <span>{formatDate(berita.publishedAt)}</span>
                   </div>
                   <span>•</span>
                   <div className="flex items-center space-x-1">
                     <Eye size={14} />
-                    <span>{newsData.views.toLocaleString()} views</span>
+                    <span>{berita.views.toLocaleString()} views</span>
                   </div>
                 </div>
 
                 <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight">
-                  {newsData.title}
+                  {berita.title}
                 </h1>
 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-2 text-sm text-gray-600">
                     <User size={16} />
-                    <span>Oleh: {newsData.author}</span>
+                    <span>Oleh: {berita.author}</span>
                   </div>
 
                   {/* Share Buttons */}
@@ -230,8 +262,8 @@ export default function BeritaDetail() {
               {/* Featured Image */}
               <div className="relative">
                 <img
-                  src={newsData.featuredImage}
-                  alt={newsData.title}
+                  src={berita.image}
+                  alt={berita.title}
                   className="w-full h-64 lg:h-80 object-cover"
                 />
               </div>
@@ -239,9 +271,13 @@ export default function BeritaDetail() {
               {/* Content */}
               <div className="p-6">
                 <div
-                  className="prose prose-lg max-w-none text-gray-800 leading-relaxed"
-                  dangerouslySetInnerHTML={{ __html: newsData.content }}
-                />
+                  className="prose prose-lg max-w-none text-gray-800 space-y-6 text-justify">
+                    {berita.content
+                    .split(/\n\s*\n/) // pisahkan berdasarkan 1 baris kosong (2 newline)
+                    .map((paragraph, idx) => (
+                    <p key={idx} className="mb-0">{paragraph.trim()}</p>
+                    ))}
+                </div>
 
                 {/* Tags */}
                 <div className="mt-8 pt-6 border-t">
@@ -251,7 +287,7 @@ export default function BeritaDetail() {
                       Tags:
                     </span>
                     <div className="flex flex-wrap gap-2">
-                      {newsData.tags.map((tag, index) => (
+                      {berita.tags.map((tag, index) => (
                         <span
                           key={index}
                           className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm"
@@ -265,7 +301,7 @@ export default function BeritaDetail() {
 
                 {/* Update Info */}
                 <div className="mt-4 text-sm text-gray-500">
-                  Terakhir diperbarui: {formatDate(newsData.updatedAt)}
+                  Terakhir diperbarui: {formatDate(berita.publishedAt)}
                 </div>
               </div>
             </article>
@@ -280,7 +316,7 @@ export default function BeritaDetail() {
                   Berita Terkait
                 </h3>
                 <div className="space-y-4">
-                  {newsData.relatedNews.map((news) => (
+                  {relatedNews.map((news) => (
                     <div key={news.id} className="group cursor-pointer">
                       <div className="flex space-x-3">
                         <img
@@ -313,14 +349,7 @@ export default function BeritaDetail() {
                   Kategori Berita
                 </h3>
                 <div className="space-y-2">
-                  {[
-                    { name: "Akademik", count: 15 },
-                    { name: "Prestasi", count: 8 },
-                    { name: "Program", count: 12 },
-                    { name: "Kerjasama", count: 6 },
-                    { name: "Pengumuman", count: 20 },
-                    { name: "Kegiatan", count: 10 },
-                  ].map((category) => (
+                  {categories.map((category) => (
                     <a
                       key={category.name}
                       href={`/berita?category=${category.name.toLowerCase()}`}

@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
+import { beritaList } from "@/data/berita";
 import Footer from "@/components/Footer";
 import {
   Calendar,
@@ -24,7 +25,7 @@ export default function Berita() {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
 
-  const newsArticles = [
+  /*const newsArticles = [
     {
       id: 1,
       title: "Polstat STIS Raih Akreditasi Unggul untuk Semua Program Studi",
@@ -147,9 +148,19 @@ export default function Berita() {
       views: 634,
       tags: ["Papers", "Teknologi", "ICDSOS"],
     },
-  ];
+  ]; */
 
-  const filteredNews = newsArticles.filter((news) => {
+  const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString("id-ID", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  };  
+
+  const filteredNews = beritaList.filter((news) => {
     const matchesSearch =
       searchTerm === "" ||
       news.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -187,36 +198,36 @@ export default function Berita() {
   };
 
   const categories = [
-    { name: "Semua", count: newsArticles.length },
+    { name: "Semua", count: beritaList.length },
     {
       name: "Akademik",
-      count: newsArticles.filter((news) => news.category === "Akademik").length,
+      count: beritaList.filter((news) => news.category === "Akademik").length,
     },
     {
       name: "Prestasi",
-      count: newsArticles.filter((news) => news.category === "Prestasi").length,
+      count: beritaList.filter((news) => news.category === "Prestasi").length,
     },
     {
       name: "Pendaftaran",
-      count: newsArticles.filter((news) => news.category === "Pendaftaran")
+      count: beritaList.filter((news) => news.category === "Pendaftaran")
         .length,
     },
     {
       name: "Seminar",
-      count: newsArticles.filter((news) => news.category === "Seminar").length,
+      count: beritaList.filter((news) => news.category === "Seminar").length,
     },
     {
       name: "Pengumuman",
-      count: newsArticles.filter((news) => news.category === "Pengumuman").length,
+      count: beritaList.filter((news) => news.category === "Pengumuman").length,
     },
     {
       name: "Kerjasama",
-      count: newsArticles.filter((news) => news.category === "Kerjasama").length,
+      count: beritaList.filter((news) => news.category === "Kerjasama").length,
     }
   ];
 
-  const featuredNews = newsArticles.filter((news) => news.featured);
-  const popularNews = newsArticles
+  const featuredNews = beritaList.filter((news) => news.featured);
+  const popularNews = beritaList
     .sort((a, b) => b.views - a.views)
     .slice(0, 5);
 
@@ -272,11 +283,11 @@ export default function Berita() {
                         <div className="flex items-center text-gray-200 text-sm space-x-4">
                           <div className="flex items-center">
                             <Calendar className="w-4 h-4 mr-1" />
-                            {featuredNews[0].date}
+                            {formatDate(featuredNews[0].publishedAt)}
                           </div>
                           <div className="flex items-center">
                             <Clock className="w-4 h-4 mr-1" />
-                            {featuredNews[0].readTime}
+                            {featuredNews[0].views}
                           </div>
                           <div className="flex items-center">
                             <Eye className="w-4 h-4 mr-1" />
@@ -314,8 +325,8 @@ export default function Berita() {
                             {news.title}
                           </h4>
                           <div className="flex items-center text-gray-500 text-xs space-x-3">
-                            <span>{news.date}</span>
-                            <span>{news.readTime}</span>
+                            <span>{formatDate(news.publishedAt)}</span>
+                            <span>{news.views}</span>
                           </div>
                         </CardContent>
                       </div>
@@ -388,7 +399,7 @@ export default function Berita() {
                   <div className="mt-4 p-3 bg-stis-orange-50 rounded-lg">
                     <p className="text-stis-orange-800 text-sm">
                       Menampilkan {filteredNews.length} dari{" "}
-                      {newsArticles.length} berita
+                      {beritaList.length} berita
                       {searchTerm && ` untuk "${searchTerm}"`}
                       {selectedCategory !== "Semua" &&
                         ` dalam kategori "${selectedCategory}"`}
@@ -486,7 +497,7 @@ export default function Berita() {
                               <div className="flex items-center text-gray-500 text-sm space-x-3">
                                 <div className="flex items-center">
                                   <Calendar className="w-4 h-4 mr-1" />
-                                  {news.date}
+                                  {formatDate(news.publishedAt)}
                                 </div>
                                 <div className="flex items-center">
                                   <Eye className="w-4 h-4 mr-1" />
@@ -494,7 +505,8 @@ export default function Berita() {
                                 </div>
                               </div>
                             </div>
-                            <h3 className="font-bold text-xl text-gray-900 mb-3 group-hover:text-stis-orange-600 transition-colors">
+                            <h3 className="font-bold text-xl text-gray-900 mb-3 group-hover:text-stis-orange-600 transition-colors"
+                              onClick={() => (window.location.href = `/berita/${news.id}`)}>
                               {news.title}
                             </h3>
                             <p className="text-gray-600 mb-4 leading-relaxed">
@@ -508,7 +520,7 @@ export default function Berita() {
                                 </span>
                                 <span className="text-gray-400">•</span>
                                 <span className="text-sm text-gray-600">
-                                  {news.readTime}
+                                  {news.views}
                                 </span>
                               </div>
                               <div className="flex items-center space-x-2">
@@ -642,7 +654,7 @@ export default function Berita() {
                               {news.title}
                             </h4>
                             <div className="flex items-center text-xs text-gray-500 space-x-2">
-                              <span>{news.date}</span>
+                              <span>{formatDate(news.publishedAt)}</span>
                               <span>•</span>
                               <span>{news.views.toLocaleString()} views</span>
                             </div>
