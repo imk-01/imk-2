@@ -28,9 +28,9 @@ export default function Lambang() {
             <div className="text-center mb-16">
               <div className="w-64 h-64 mx-auto bg-white shadow-2xl rounded-full flex items-center justify-center mb-8">
                 <img
-                  src="/api/placeholder/200/200"
+                  src="/logo_STIS.png"
                   alt="Logo STIS"
-                  className="w-48 h-48"
+                  className="w-70 h-70"
                 />
               </div>
               <h2 className="font-display font-bold text-3xl text-gray-900 mb-4">
@@ -45,177 +45,107 @@ export default function Lambang() {
       </section>
 
       {/* Meaning and Philosophy */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="font-display font-bold text-3xl lg:text-4xl text-gray-900 mb-12 text-center">
-              Makna dan Filosofi Lambang
-            </h2>
+<section className="py-20 bg-gray-50">
+  <div className="container mx-auto px-4">
+    <div className="max-w-5xl mx-auto">
+      <h2 className="font-display font-bold text-4xl text-gray-900 mb-12 text-center">
+        Makna dan Filosofi Lambang
+      </h2>
 
-            <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-              <Card className="p-8">
-                <CardContent className="p-0">
-                  <h3 className="font-bold text-2xl text-stis-blue-600 mb-6">
-                    Komponen Utama
-                  </h3>
-                  <div className="space-y-6">
-                    <div className="flex items-start space-x-4">
-                      <Shield className="w-8 h-8 text-stis-blue-600 flex-shrink-0 mt-1" />
-                      <div>
-                        <h4 className="font-bold text-lg text-gray-900 mb-2">
-                          Perisai Pancasila
-                        </h4>
-                        <p className="text-gray-700">
-                          Melambangkan keteguhan dalam berpegang pada
-                          nilai-nilai Pancasila sebagai dasar ideologi bangsa
-                          Indonesia.
-                        </p>
-                      </div>
-                    </div>
+      {/* Makna Lambang */}
+      <div className="grid md:grid-cols-2 gap-8 mb-12">
+        <div className="bg-white rounded-xl shadow-md p-6 border border-stis-blue-100">
+          <h3 className="text-2xl font-bold text-stis-blue-700 mb-4 flex items-center gap-2">
+            Makna Lambang
+          </h3>
+          <ul className="space-y-3 text-gray-700 list-disc pl-5">
+            <li><span className="font-medium">Lingkaran:</span> adaptif terhadap perkembangan ilmu pengetahuan.</li>
+            <li><span className="font-medium">Diagram balok:</span> simbol ilmu statistik.</li>
+            <li><span className="font-medium">3 buah balok:</span> Tridharma Perguruan Tinggi.</li>
+            <li><span className="font-medium">Tali oval pengikat:</span> kesatuan Tridharma menuju visi STIS.</li>
+            <li><span className="font-medium">4 lidah api:</span> semangat dan motivasi sivitas akademika.</li>
+            <li><span className="font-medium">Sayap mengembang:</span> visi unggul dan menjulang tinggi.</li>
+            <li><span className="font-medium">Mata pena:</span> ketajaman berpikir dalam memaknai data statistik.</li>
+          </ul>
+        </div>
 
-                    <div className="flex items-start space-x-4">
-                      <Star className="w-8 h-8 text-stis-orange-600 flex-shrink-0 mt-1" />
-                      <div>
-                        <h4 className="font-bold text-lg text-gray-900 mb-2">
-                          Bintang Lima
-                        </h4>
-                        <p className="text-gray-700">
-                          Representasi dari sila pertama Pancasila "Ketuhanan
-                          Yang Maha Esa" dan menunjukkan keunggulan institusi.
-                        </p>
-                      </div>
-                    </div>
+        {/* Makna Warna */}
+        <div className="bg-white rounded-xl shadow-md p-6 border border-stis-green-100">
+          <h3 className="text-2xl font-bold text-stis-green-700 mb-4 flex items-center gap-2">
+          Makna Warna
+          </h3>
+          <ol className="space-y-6 text-gray-700 list-decimal pl-6">
+      <li>
+        <p>
+          Warna <span className="font-medium text-blue-600">biru</span>,{" "}
+          <span className="font-medium text-green-600">hijau</span>, dan{" "}
+          <span className="font-medium text-orange-500">jingga</span> melambangkan tiga kegiatan
+          sensus besar yang dilakukan oleh Badan Pusat Statistik:
+        </p>
+        <ul className="list-disc pl-6 mt-2 space-y-1">
+          <li><span className="font-medium text-blue-600">Biru:</span> Sensus Penduduk</li>
+          <li><span className="font-medium text-green-600">Hijau:</span> Sensus Pertanian</li>
+          <li><span className="font-medium text-orange-500">Jingga:</span> Sensus Ekonomi</li>
+        </ul>
+        <p className="mt-2">
+          Gradasi warna biru dan jingga menciptakan kesan kampus yang <span className="italic">modern</span> dan <span className="italic">dinamis</span>.
+        </p>
+      </li>
 
-                    <div className="flex items-start space-x-4">
-                      <Book className="w-8 h-8 text-stis-green-600 flex-shrink-0 mt-1" />
-                      <div>
-                        <h4 className="font-bold text-lg text-gray-900 mb-2">
-                          Buku Terbuka
-                        </h4>
-                        <p className="text-gray-700">
-                          Simbol ilmu pengetahuan dan pendidikan yang terus
-                          berkembang dalam bidang statistik.
-                        </p>
-                      </div>
-                    </div>
+      <li>
+        <p>
+          <span className="font-medium text-green-700">Kode warna hijau:</span> RGB{" "}
+          <code className="bg-gray-100 rounded px-1 py-0.5 text-sm">180, 232, 0</code><br />
+          <span className="font-medium text-blue-700">Kode warna biru:</span> gradasi linear dari{" "}
+          <code className="bg-gray-100 rounded px-1 py-0.5 text-sm">27, 68, 156</code> ke{" "}
+          <code className="bg-gray-100 rounded px-1 py-0.5 text-sm">0, 143, 213</code><br />
+          <span className="font-medium text-orange-600">Kode warna jingga:</span> gradasi sirkuler dari{" "}
+          <code className="bg-gray-100 rounded px-1 py-0.5 text-sm">248, 152, 28</code> ke{" "}
+          <code className="bg-gray-100 rounded px-1 py-0.5 text-sm">255, 227, 0</code>
+        </p>
+      </li>
 
-                    <div className="flex items-start space-x-4">
-                      <Globe className="w-8 h-8 text-stis-blue-700 flex-shrink-0 mt-1" />
-                      <div>
-                        <h4 className="font-bold text-lg text-gray-900 mb-2">
-                          Rantai Emas
-                        </h4>
-                        <p className="text-gray-700">
-                          Melambangkan persatuan dan kekeluargaan seluruh
-                          civitas akademika STIS.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+      <li>
+        <p>
+          Tulisan <span className="font-bold text-gray-800">POLITEKNIK STATISTIKA STIS</span> menggunakan warna{" "}
+          <span className="font-medium">putih</span> dengan jenis huruf{" "}
+          <span className="font-mono italic">Trebuchet MS</span> dan proporsi <strong>1:1</strong>.
+        </p>
+        <p className="mt-1">
+          Warna putih tersebut melambangkan <span className="italic">kemurnian ilmu statistik</span>.
+        </p>
+      </li>
+    </ol>
+        </div>
+      </div>
 
-              <Card className="p-8">
-                <CardContent className="p-0">
-                  <h3 className="font-bold text-2xl text-stis-green-600 mb-6">
-                    Makna Warna
-                  </h3>
-                  <div className="space-y-6">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-8 h-8 bg-blue-600 rounded-full flex-shrink-0"></div>
-                      <div>
-                        <h4 className="font-bold text-lg text-gray-900 mb-1">
-                          Biru
-                        </h4>
-                        <p className="text-gray-700">
-                          Melambangkan kesetiaan, kepercayaan, dan kebijaksanaan
-                          dalam menjalankan tugas pendidikan.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center space-x-4">
-                      <div className="w-8 h-8 bg-yellow-500 rounded-full flex-shrink-0"></div>
-                      <div>
-                        <h4 className="font-bold text-lg text-gray-900 mb-1">
-                          Kuning Emas
-                        </h4>
-                        <p className="text-gray-700">
-                          Simbol kemurnian, kemuliaan, dan pencerahan dalam ilmu
-                          pengetahuan statistik.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center space-x-4">
-                      <div className="w-8 h-8 bg-red-600 rounded-full flex-shrink-0"></div>
-                      <div>
-                        <h4 className="font-bold text-lg text-gray-900 mb-1">
-                          Merah
-                        </h4>
-                        <p className="text-gray-700">
-                          Melambangkan keberanian dan semangat dalam menghadapi
-                          tantangan dan perubahan zaman.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center space-x-4">
-                      <div className="w-8 h-8 bg-white border-2 border-gray-300 rounded-full flex-shrink-0"></div>
-                      <div>
-                        <h4 className="font-bold text-lg text-gray-900 mb-1">
-                          Putih
-                        </h4>
-                        <p className="text-gray-700">
-                          Simbol kesucian, kejujuran, dan transparansi dalam
-                          menjalankan tugas dan fungsi institusi.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Usage Guidelines */}
-            <Card className="p-8">
-              <CardContent className="p-0">
-                <h3 className="font-bold text-2xl text-gray-900 mb-6 text-center">
-                  Pedoman Penggunaan Lambang
-                </h3>
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <h4 className="font-bold text-lg text-stis-blue-600 mb-4">
-                      Aturan Umum
-                    </h4>
-                    <ul className="space-y-2 text-gray-700">
-                      <li>
-                        • Lambang harus digunakan dalam proporsi yang benar
-                      </li>
-                      <li>• Tidak boleh diubah bentuk atau komposisinya</li>
-                      <li>
-                        • Warna harus sesuai dengan standar yang ditetapkan
-                      </li>
-                      <li>• Ukuran minimum harus tetap terbaca dengan jelas</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-lg text-stis-green-600 mb-4">
-                      Penggunaan Resmi
-                    </h4>
-                    <ul className="space-y-2 text-gray-700">
-                      <li>• Dokumen resmi institusi</li>
-                      <li>• Sertifikat dan ijazah</li>
-                      <li>• Media promosi dan publikasi</li>
-                      <li>• Seragam dan atribut resmi</li>
-                    </ul>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+      {/* Penggunaan Lambang */}
+      <div className="bg-white rounded-xl shadow-md p-6 border border-stis-blue-100">
+        <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+          Penggunaan Lambang
+        </h3>
+        <div className="grid md:grid-cols-2 gap-8">
+          <div>
+            <h4 className="font-bold text-lg text-stis-blue-700 mb-3">Pedoman Umum</h4>
+            <ul className="space-y-2 text-gray-700 list-disc pl-5">
+              <li>Lambang digunakan dalam proporsi dan warna yang benar.</li>
+              <li>Tidak boleh diubah bentuk atau distorsi ukuran.</li>
+              <li>Harus terbaca jelas, termasuk pada ukuran kecil.</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-bold text-lg text-stis-green-700 mb-3">Konteks Penggunaan</h4>
+            <ul className="space-y-2 text-gray-700 list-disc pl-5">
+              <li>Digunakan di dokumen resmi institusi.</li>
+              <li>Wajib digunakan dalam kegiatan mahasiswa yang mengatasnamakan STIS seperti kop surat, jaket PKL, dan spanduk.</li>
+            </ul>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       <Footer />
     </div>
