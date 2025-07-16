@@ -316,7 +316,7 @@ export default function Berita() {
                           />
                         </div>
                         <CardContent className="w-2/3 p-4">
-                          <span className="bg-stis-blue-100 text-stis-blue-800 px-2 py-1 rounded text-xs font-semibold mb-2 inline-block">
+                          <span className="text-white bg-stis-orange-500 px-2 py-1 rounded-full text-xs font-semibold mb-2 inline-block">
                             {news.category}
                           </span>
                           <h4 className="font-bold text-lg text-gray-900 mb-2 group-hover:text-stis-orange-600 transition-colors line-clamp-2">

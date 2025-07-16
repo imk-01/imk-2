@@ -361,7 +361,7 @@ export default function Index() {
                       className="w-full h-full object-cover"
                     />
                   <div className="absolute top-4 left-4">
-                    <span className="bg-stis-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                    <span className="bg-stis-orange-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
                       {article.category}
                     </span>
                   </div>

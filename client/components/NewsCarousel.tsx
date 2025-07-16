@@ -231,7 +231,7 @@ export default function NewsCarousel() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute top-2 left-2">
-                    <span className="bg-stis-blue-600 text-white px-2 py-1 rounded text-xs font-semibold">
+                    <span className="bg-stis-orange-600 text-white px-2 py-1 rounded-full text-xs font-semibold">
                       {item.category}
                     </span>
                   </div>
