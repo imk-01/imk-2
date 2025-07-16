@@ -22,7 +22,7 @@ export default function Lambang() {
       </section>
 
       {/* Logo Display */}
-      <section className="py-20">
+      <section className="pt-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
@@ -33,19 +33,13 @@ export default function Lambang() {
                   className="w-70 h-70"
                 />
               </div>
-              <h2 className="font-display font-bold text-3xl text-gray-900 mb-4">
-                Logo Politeknik Statistika STIS
-              </h2>
-              <p className="text-xl text-gray-600">
-                Lambang yang mencerminkan nilai-nilai dan komitmen institusi
-              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Meaning and Philosophy */}
-<section className="py-20 bg-gray-50">
+<section className="pb-20 bg-gray-50">
   <div className="container mx-auto px-4">
     <div className="max-w-5xl mx-auto">
       <h2 className="font-display font-bold text-4xl text-gray-900 mb-12 text-center">
