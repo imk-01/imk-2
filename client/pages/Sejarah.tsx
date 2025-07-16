@@ -9,47 +9,47 @@ export default function Sejarah() {
       year: "1958",
       title: "Pendirian Akademi Ilmu Statistik (AIS)",
       description:
-        "Pada tanggal 16 September 1958, berdasarkan Keputusan Presiden No. 163 Tahun 1958, didirikan Akademi Ilmu Statistik (AIS) sebagai cikal bakal STIS.",
+        "Perdana Menteri Ir. H. Djuanda mengeluarkan SK No. 377/PM/1958 tentang pendirian AIS untuk mendidik tenaga statistik semi-ahli. AIS mendapat dukungan dari PBB melalui Statistical Research and Development Centre.",
       icon: Building,
       color: "bg-stis-blue-600",
     },
     {
-      year: "1965",
-      title: "Perubahan Status Menjadi STIS",
+      year: "1964",
+      title: "Didirikannya PTIS",
       description:
-        "AIS berubah status menjadi Sekolah Tinggi Ilmu Statistik (STIS) berdasarkan Keputusan Presiden No. 19 Tahun 1965.",
-      icon: Award,
+        "BPS mendirikan Perguruan Tinggi Ilmu Statistik (PTIS) untuk meningkatkan pendidikan lulusan AIS, dengan bantuan dosen dari PBB. Namun, PTIS ditutup pada 1965 saat Indonesia keluar dari PBB.",
+      icon: Users,
       color: "bg-stis-green-600",
     },
     {
-      year: "1986",
-      title: "Pembukaan Program Diploma IV",
+      year: "1997–1998",
+      title: "STIS Didirikan",
       description:
-        "STIS membuka program Diploma IV Statistika untuk memenuhi kebutuhan tenaga ahli statistik yang lebih tinggi.",
-      icon: Users,
+        "Dengan persetujuan Ditjen Dikti melalui surat No. 295/D/T/97 dan Keppres No. 163 Tahun 1998, STIS resmi berdiri dengan dua jurusan: Statistika dan Komputasi Statistik.",
+      icon: Award,
       color: "bg-stis-orange-600",
     },
     {
-      year: "2001",
-      title: "Perubahan Status Menjadi Politeknik",
+      year: "2012–2016",
+      title: "Transformasi Menjadi Politeknik Statistika STIS",
       description:
-        "Berdasarkan Keputusan Presiden No. 163 Tahun 2001, STIS berubah status menjadi Politeknik Statistika STIS.",
+        "UU No. 12 Tahun 2012 mendorong perubahan bentuk kelembagaan STIS menjadi Politeknik. SK No. 429/KPT/I/2016 dari Menristekdikti menyetujui pembukaan program studi baru dalam rangka transformasi.",
       icon: Building,
       color: "bg-stis-blue-700",
     },
     {
-      year: "2015",
-      title: "Pembukaan Program D4 Komputasi Statistika",
+      year: "2017",
+      title: "Persetujuan Perubahan Status",
       description:
-        "Polstat STIS membuka program studi baru D4 Komputasi Statistika untuk menghadapi era digital dan big data.",
+        "Menteri PAN-RB menyetujui perubahan status STIS menjadi Politeknik. Peraturan Kepala BPS No. 87 Tahun 2017 resmi menetapkan struktur organisasi baru Polstat STIS.",
       icon: Award,
       color: "bg-purple-600",
     },
     {
-      year: "2020",
-      title: "Akreditasi A untuk Semua Program Studi",
+      year: "2018",
+      title: "Peluncuran Resmi Polstat STIS",
       description:
-        "Semua program studi di Polstat STIS meraih akreditasi A dari BAN-PT, menunjukkan komitmen terhadap kualitas pendidikan.",
+        "Politeknik Statistika STIS resmi diluncurkan pada 28 Maret 2018 sebagai bentuk baru dari Sekolah Tinggi Ilmu Statistik.",
       icon: Award,
       color: "bg-stis-green-700",
     },
@@ -66,8 +66,7 @@ export default function Sejarah() {
             Sejarah STIS
           </h1>
           <p className="text-xl text-stis-blue-100 max-w-3xl mx-auto">
-            Perjalanan panjang Politeknik Statistika STIS dalam mengembangkan
-            pendidikan statistik di Indonesia selama lebih dari 60 tahun
+            Perjalanan panjang Politeknik Statistika STIS dalam membangun pendidikan statistik di Indonesia
           </p>
         </div>
       </section>
@@ -79,28 +78,20 @@ export default function Sejarah() {
             <Card className="p-8 mb-12">
               <CardContent className="p-0">
                 <h2 className="font-display font-bold text-3xl text-gray-900 mb-6">
-                  Awal Mula Pendirian
+                  Latar Belakang dan Perkembangan
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed text-justify">
                   <p className="mb-4">
-                    Politeknik Statistika STIS memiliki sejarah panjang yang
-                    dimulai dari kebutuhan bangsa Indonesia akan tenaga ahli
-                    statistik yang profesional. Pada masa awal kemerdekaan,
-                    Indonesia menghadapi tantangan besar dalam membangun sistem
-                    statistik nasional yang kredibel dan dapat diandalkan.
+                    Politeknik Statistika STIS adalah perguruan tinggi kedinasan di lingkungan Badan Pusat Statistik (BPS). Pembinaan secara fungsional dilakukan oleh Kepala BPS, sementara pembinaan teknis akademik dilakukan oleh Menteri yang membidangi pendidikan tinggi.
                   </p>
                   <p className="mb-4">
-                    Melihat kebutuhan tersebut, pemerintah Indonesia pada tahun
-                    1958 memutuskan untuk mendirikan institusi pendidikan khusus
-                    yang fokus pada pengembangan ilmu statistik. Inilah yang
-                    menjadi cikal bakal berdirinya Politeknik Statistika STIS
-                    yang kita kenal sekarang.
+                    Sejarahnya dimulai dari pendirian Akademi Ilmu Statistik (AIS) pada tahun 1958 melalui SK Perdana Menteri Ir. H. Djuanda. AIS didirikan untuk mendidik tenaga pelaksana statistik dan didukung oleh PBB melalui UNDP.
                   </p>
-                  <p>
-                    Sejak berdiri, STIS telah mengalami berbagai transformasi
-                    dan perkembangan yang signifikan, mulai dari perubahan
-                    status kelembagaan hingga pengembangan program studi yang
-                    sesuai dengan perkembangan zaman dan kebutuhan industri.
+                  <p className="mb-4">
+                    Pada 1964, BPS membuka PTIS dengan lulusan AIS sebagai mahasiswa. PTIS sempat tutup pada 1965, namun AIS tetap beroperasi. Pada 1997–1998, STIS resmi berdiri dengan dua jurusan.
+                  </p>
+                  <p className="mb-4">
+                    STIS kemudian bertransformasi menjadi Politeknik Statistika STIS sesuai dengan UU No. 12 Tahun 2012 dan berbagai keputusan pemerintah. Launching resmi Polstat STIS dilakukan pada 28 Maret 2018.
                   </p>
                 </div>
               </CardContent>
@@ -110,15 +101,14 @@ export default function Sejarah() {
       </section>
 
       {/* Timeline */}
-      <section className="py-20 bg-gray-50">
+      <section className="pt-15 pb-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="font-display font-bold text-3xl lg:text-4xl text-gray-900 mb-4">
               Perjalanan Sejarah
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Tonggak-tonggak penting dalam perjalanan STIS menuju institusi
-              pendidikan statistik terdepan
+              Tonggak-tonggak penting dalam perjalanan Polstat STIS sebagai institusi pendidikan statistik nasional
             </p>
           </div>
 
@@ -128,7 +118,6 @@ export default function Sejarah() {
                 const Icon = event.icon;
                 return (
                   <div key={index} className="flex items-start space-x-8">
-                    {/* Timeline Line */}
                     <div className="flex flex-col items-center">
                       <div
                         className={`w-16 h-16 ${event.color} rounded-full flex items-center justify-center shadow-lg`}
@@ -140,7 +129,6 @@ export default function Sejarah() {
                       )}
                     </div>
 
-                    {/* Content */}
                     <div className="flex-1 pb-8">
                       <Card className="hover:shadow-xl transition-all duration-300">
                         <CardContent className="p-8">
@@ -163,54 +151,6 @@ export default function Sejarah() {
                 );
               })}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Legacy Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <Card className="p-8">
-              <CardContent className="p-0">
-                <h2 className="font-display font-bold text-3xl text-gray-900 mb-6">
-                  Warisan dan Kontribusi
-                </h2>
-                <div className="grid lg:grid-cols-2 gap-8">
-                  <div>
-                    <h3 className="font-bold text-xl text-stis-blue-600 mb-4">
-                      Kontribusi untuk Bangsa
-                    </h3>
-                    <p className="text-gray-700 leading-relaxed mb-6">
-                      Selama lebih dari 60 tahun, STIS telah menghasilkan ribuan
-                      lulusan yang tersebar di seluruh Indonesia dan
-                      berkontribusi dalam pembangunan nasional melalui keahlian
-                      di bidang statistik.
-                    </p>
-                    <ul className="space-y-2 text-gray-700">
-                      <li>• Mencetak lebih dari 5.000 alumni</li>
-                      <li>• Melayani kebutuhan BPS dan instansi pemerintah</li>
-                      <li>• Mengembangkan metodologi statistik Indonesia</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-xl text-stis-blue-600 mb-4">
-                      Visi ke Depan
-                    </h3>
-                    <p className="text-gray-700 leading-relaxed mb-6">
-                      STIS terus berinovasi dan beradaptasi dengan perkembangan
-                      teknologi dan kebutuhan industri modern, khususnya dalam
-                      era big data dan artificial intelligence.
-                    </p>
-                    <ul className="space-y-2 text-gray-700">
-                      <li>• Pengembangan kurikulum berbasis teknologi</li>
-                      <li>• Kerjasama internasional</li>
-                      <li>• Penelitian dan pengabdian masyarakat</li>
-                    </ul>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
