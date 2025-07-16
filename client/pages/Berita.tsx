@@ -503,7 +503,7 @@ export default function Berita() {
                                 </div>
                               </div>
                             </div>
-                            <h3 className="font-bold text-xl text-gray-900 mb-3 group-hover:text-stis-orange-600 transition-colors"
+                            <h3 className="font-bold text-xl text-gray-900 mb-3 group-hover:text-stis-blue-600 transition-colors"
                               onClick={() => (window.location.href = `/berita/${news.id}`)}>
                               {news.title}
                             </h3>
@@ -531,7 +531,7 @@ export default function Berita() {
                                 </Button>
                                 <Button
                                   size="sm"
-                                  className="bg-stis-orange-600 hover:bg-stis-orange-700"
+                                  className="bg-stis-blue-600 hover:bg-stis-blue-700"
                                   onClick={(e) => {
                                     e.stopPropagation();
                                     window.location.href = `/berita/${news.id}`;
