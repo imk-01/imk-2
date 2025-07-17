@@ -224,7 +224,7 @@ export default function PrestasiMahasiswa() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-stis-orange-900 to-stis-orange-800 py-20">
+      <section className="bg-gradient-to-r from-stis-blue-900 to-stis-blue-800 py-20">
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center mb-6">
             <Trophy className="w-16 h-16 text-white mr-4" />

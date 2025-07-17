@@ -124,7 +124,7 @@ export default function KalenderAkademik() {
       events: [
         {
           date: "14-19",
-          event: "Praktik Kerja Lapangan (PKL) Mahasiswa Tingkat Akhir",
+          event: "Praktik Kerja Lapangan (PKL) Mahasiswa",
           type: "pkl",
         },
       ],
@@ -196,12 +196,6 @@ export default function KalenderAkademik() {
 
   const importantDates = [
     {
-      title: "Batas Akhir Pembayaran UKT Semester Ganjil",
-      date: "15 September 2024",
-      icon: AlertCircle,
-      color: "text-red-600",
-    },
-    {
       title: "Batas Akhir Pengajuan Cuti Akademik",
       date: "30 September 2024",
       icon: Clock,
@@ -214,7 +208,7 @@ export default function KalenderAkademik() {
       color: "text-blue-600",
     },
     {
-      title: "Pendaftaran PKL Mahasiswa Tingkat Akhir",
+      title: "Pelaksanaan PKL Mahasiswa",
       date: "1-31 Maret 2025",
       icon: Users,
       color: "text-green-600",
@@ -229,7 +223,7 @@ export default function KalenderAkademik() {
       <section className="bg-gradient-to-r from-stis-blue-900 to-stis-blue-800 py-20">
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center mb-6">
-            <Calendar className="w-16 h-16 text-stis-orange-400 mr-4" />
+            <Calendar className="w-16 h-16 text-white mr-4" />
             <h1 className="font-display font-bold text-4xl lg:text-6xl text-white">
               Kalender Akademik
             </h1>
@@ -269,41 +263,6 @@ export default function KalenderAkademik() {
                 </div>
               </CardContent>
             </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Important Dates */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="font-display font-bold text-3xl lg:text-4xl text-gray-900 mb-12 text-center">
-              Tanggal Penting
-            </h2>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-              {importantDates.map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <Card
-                    key={index}
-                    className="text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
-                  >
-                    <CardContent className="p-6">
-                      <Icon
-                        className={`w-12 h-12 mx-auto mb-4 ${item.color}`}
-                      />
-                      <h3 className="font-bold text-lg text-gray-900 mb-3 leading-tight">
-                        {item.title}
-                      </h3>
-                      <p className={`font-semibold ${item.color}`}>
-                        {item.date}
-                      </p>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
           </div>
         </div>
       </section>

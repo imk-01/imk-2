@@ -153,10 +153,9 @@ export default function D4Statistika() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-stis-green-800 to-stis-green-700 py-20">
+      <section className="bg-gradient-to-r from-stis-blue-900 to-stis-blue-800 py-20">
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center mb-6">
-            <GraduationCap className="w-16 h-16 text-stis-orange-400 mr-4" />
             <h1 className="font-display font-bold text-4xl lg:text-6xl text-white">
               D4 Statistika
             </h1>
@@ -176,7 +175,7 @@ export default function D4Statistika() {
             <div className="grid lg:grid-cols-4 gap-8 mb-16">
               <Card className="text-center hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-8">
-                  <Clock className="w-12 h-12 text-stis-green-600 mx-auto mb-4" />
+                  <Clock className="w-12 h-12 text-stis-blue-600 mx-auto mb-4" />
                   <h3 className="font-bold text-xl text-gray-900 mb-2">
                     4 Tahun
                   </h3>
@@ -186,7 +185,7 @@ export default function D4Statistika() {
 
               <Card className="text-center hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-8">
-                  <Award className="w-12 h-12 text-stis-blue-600 mx-auto mb-4" />
+                  <Award className="w-12 h-12 text-stis-green-600 mx-auto mb-4" />
                   <h3 className="font-bold text-xl text-gray-900 mb-2">
                     Akreditasi A
                   </h3>
@@ -269,7 +268,7 @@ export default function D4Statistika() {
                   >
                     <CardContent className="p-8">
                       <div className="flex items-start space-x-4">
-                        <div className="w-12 h-12 bg-stis-green-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <div className="w-12 h-12 bg-stis-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
                           <Icon className="w-6 h-6 text-white" />
                         </div>
                         <div>
@@ -304,7 +303,7 @@ export default function D4Statistika() {
                   key={index}
                   className="hover:shadow-xl transition-all duration-300"
                 >
-                  <CardHeader className="bg-stis-green-600 text-white">
+                  <CardHeader className="bg-stis-blue-600 text-white">
                     <CardTitle className="text-center text-sm">
                       {sem.semester}
                     </CardTitle>
@@ -336,7 +335,7 @@ export default function D4Statistika() {
               {/* Career Prospects */}
               <Card className="p-8">
                 <CardContent className="p-0">
-                  <h3 className="font-bold text-2xl text-stis-green-600 mb-6">
+                  <h3 className="font-bold text-2xl text-stis-blue-600 mb-6">
                     Prospek Karier
                   </h3>
                   <ul className="space-y-3">
@@ -345,7 +344,7 @@ export default function D4Statistika() {
                         key={index}
                         className="flex items-start space-x-3 text-gray-700"
                       >
-                        <CheckCircle className="w-5 h-5 text-stis-green-600 flex-shrink-0 mt-0.5" />
+                        <CheckCircle className="w-5 h-5 text-stis-blue-600 flex-shrink-0 mt-0.5" />
                         <span>{career}</span>
                       </li>
                     ))}

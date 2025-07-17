@@ -25,47 +25,47 @@ import {
 export default function SenatMahasiswa() {
   const senatStructure = [
     {
-      position: "Ketua Senat",
-      name: "Ahmad Rizki Pratama",
+      position: "Ketua DPM",
+      name: "Sultan Hadi Prabowo",
       program: "D-IV Statistika",
       period: "2024-2025",
-      image: "/api/placeholder/150/150",
+      image: "/ketua-dpm.png",
       responsibilities: [
-        "Memimpin rapat senat",
+        "Memimpin rapat dpm",
         "Koordinasi dengan pimpinan kampus",
         "Representasi mahasiswa",
       ],
     },
     {
-      position: "Wakil Ketua Senat",
-      name: "Sari Indira Putri",
+      position: "Wakil Ketua DPM",
+      name: "Kilat Tri Prasetyo",
       program: "D-IV Komputasi Statistika",
       period: "2024-2025",
-      image: "/api/placeholder/150/150",
+      image: "/wakilketua-dpm.png",
       responsibilities: [
-        "Mendampingi ketua senat",
-        "Koordinasi internal senat",
+        "Mendampingi ketua dpm",
+        "Koordinasi internal dpm",
         "Pengawasan program kerja",
       ],
     },
     {
       position: "Sekretaris",
-      name: "Budi Santoso",
+      name: "Johana H. Br Nainggolan",
       program: "D-III Statistika",
       period: "2024-2025",
-      image: "/api/placeholder/150/150",
+      image: "/sekretaris-dpm.png",
       responsibilities: [
-        "Administrasi senat",
+        "Administrasi dpm",
         "Notulensi rapat",
         "Dokumentasi kegiatan",
       ],
     },
     {
       position: "Bendahara",
-      name: "Maya Sari Dewi",
+      name: "Faradilla Chairin Ninda",
       program: "D-IV Statistika",
       period: "2024-2025",
-      image: "/api/placeholder/150/150",
+      image: "/bendahara-dpm.png",
       responsibilities: [
         "Pengelolaan keuangan",
         "Laporan keuangan",
@@ -135,12 +135,12 @@ export default function SenatMahasiswa() {
       participants: "Semua mahasiswa",
     },
     {
-      title: "Rapat Senat Pleno",
+      title: "Rapat Dewan Pleno",
       description:
-        "Rapat formal senat untuk membahas isu-isu strategis kemahasiswaan",
+        "Rapat formal dewan untuk membahas isu-isu strategis kemahasiswaan",
       date: "Setiap bulan",
       status: "scheduled",
-      participants: "Anggota senat",
+      participants: "Anggota dewan",
     },
     {
       title: "Dialog dengan Pimpinan",
@@ -197,31 +197,12 @@ export default function SenatMahasiswa() {
           <div className="flex items-center justify-center mb-6">
             <Gavel className="w-16 h-16 text-white mr-4" />
             <h1 className="font-display font-bold text-4xl lg:text-6xl text-white">
-              Senat Mahasiswa
+              Dewan Perwakilan Mahasiswa
             </h1>
           </div>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            Lembaga perwakilan mahasiswa yang berfungsi sebagai legislatif,
-            pengawasan, dan penyalur aspirasi mahasiswa STIS
+            Lembaga perwakilan mahasiswa STIS menjalankan fungsi legislatif di Imapolstat yang menjembatani aspirasi mahasiswa dengan lembaga kampus untuk membangun kualitas pembelajaran yang lebih baik.
           </p>
-        </div>
-      </section>
-
-      {/* About Senat */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="font-display font-bold text-3xl text-gray-900 mb-8">
-              Tentang Senat Mahasiswa
-            </h2>
-            <p className="text-lg text-gray-600 leading-relaxed mb-12">
-              Senat Mahasiswa STIS adalah lembaga kemahasiswaan yang mewakili
-              seluruh mahasiswa dalam menjalankan fungsi legislatif, pengawasan,
-              dan penyaluran aspirasi. Senat berperan sebagai jembatan
-              komunikasi antara mahasiswa dengan pihak kampus untuk menciptakan
-              lingkungan akademik yang kondusif dan demokratis.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -230,7 +211,7 @@ export default function SenatMahasiswa() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="font-display font-bold text-3xl text-gray-900 mb-12 text-center">
-              Fungsi Senat Mahasiswa
+              Fungsi DPM
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {functions.map((func, index) => {
@@ -385,7 +366,7 @@ export default function SenatMahasiswa() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="font-display font-bold text-3xl text-gray-900 mb-12 text-center">
-              Pencapaian Senat
+              Pencapaian DPM
             </h2>
             <div className="space-y-6">
               {achievements.map((achievement, index) => (

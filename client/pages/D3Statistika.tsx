@@ -122,7 +122,6 @@ export default function D3Statistika() {
       <section className="bg-gradient-to-r from-stis-blue-900 to-stis-blue-800 py-20">
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center mb-6">
-            <GraduationCap className="w-16 h-16 text-stis-orange-400 mr-4" />
             <h1 className="font-display font-bold text-4xl lg:text-6xl text-white">
               D3 Statistika
             </h1>
@@ -303,14 +302,14 @@ export default function D3Statistika() {
                           key={index}
                           className="flex items-start space-x-3 text-gray-700"
                         >
-                          <CheckCircle className="w-5 h-5 text-stis-green-600 flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="w-5 h-5 text-stis-blue-600 flex-shrink-0 mt-0.5" />
                           <span>{career}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                   <div>
-                    <h3 className="font-bold text-xl text-stis-green-600 mb-6">
+                    <h3 className="font-bold text-xl text-stis-blue-600 mb-6">
                       Kelebihan Lulusan
                     </h3>
                     <ul className="space-y-3 text-gray-700">

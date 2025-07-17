@@ -160,10 +160,9 @@ export default function D4KomputasiStatistika() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-purple-900 to-purple-800 py-20">
+      <section className="bg-gradient-to-r from-stis-blue-900 to-stis-blue-800 py-20">
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center mb-6">
-            <Code className="w-16 h-16 text-stis-orange-400 mr-4" />
             <h1 className="font-display font-bold text-3xl lg:text-5xl text-white leading-tight">
               D4 Komputasi Statistika
             </h1>
@@ -183,7 +182,7 @@ export default function D4KomputasiStatistika() {
             <div className="grid lg:grid-cols-4 gap-8 mb-16">
               <Card className="text-center hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-8">
-                  <Clock className="w-12 h-12 text-purple-600 mx-auto mb-4" />
+                  <Clock className="w-12 h-12 text-stis-blue-600 mx-auto mb-4" />
                   <h3 className="font-bold text-xl text-gray-900 mb-2">
                     4 Tahun
                   </h3>
@@ -193,7 +192,7 @@ export default function D4KomputasiStatistika() {
 
               <Card className="text-center hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-8">
-                  <Award className="w-12 h-12 text-stis-blue-600 mx-auto mb-4" />
+                  <Award className="w-12 h-12 text-stis-green-600 mx-auto mb-4" />
                   <h3 className="font-bold text-xl text-gray-900 mb-2">
                     Akreditasi A
                   </h3>
@@ -203,7 +202,7 @@ export default function D4KomputasiStatistika() {
 
               <Card className="text-center hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-8">
-                  <Users className="w-12 h-12 text-stis-green-600 mx-auto mb-4" />
+                  <Users className="w-12 h-12 text-stis-orange-600 mx-auto mb-4" />
                   <h3 className="font-bold text-xl text-gray-900 mb-2">
                     144 SKS
                   </h3>
@@ -213,7 +212,7 @@ export default function D4KomputasiStatistika() {
 
               <Card className="text-center hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-8">
-                  <Brain className="w-12 h-12 text-stis-orange-600 mx-auto mb-4" />
+                  <Brain className="w-12 h-12 text-purple-600 mx-auto mb-4" />
                   <h3 className="font-bold text-xl text-gray-900 mb-2">
                     S.Tr.Kom
                   </h3>
@@ -422,7 +421,7 @@ export default function D4KomputasiStatistika() {
                     </ul>
                   </div>
                   <div>
-                    <h3 className="font-bold text-xl text-stis-green-600 mb-6">
+                    <h3 className="font-bold text-xl text-stis-blue-600 mb-6">
                       Emerging Opportunities
                     </h3>
                     <ul className="space-y-3">
@@ -431,7 +430,7 @@ export default function D4KomputasiStatistika() {
                           key={index}
                           className="flex items-start space-x-3 text-gray-700"
                         >
-                          <CheckCircle className="w-5 h-5 text-stis-green-600 flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="w-5 h-5 text-stis-blue-600 flex-shrink-0 mt-0.5" />
                           <span>{career}</span>
                         </li>
                       ))}

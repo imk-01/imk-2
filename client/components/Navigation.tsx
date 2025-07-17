@@ -64,7 +64,7 @@ export default function Navigation() {
           title: "Organisasi Kemahasiswaan",
           href: "/kemahasiswaan/organisasi",
         },
-        { title: "Senat Mahasiswa", href: "/kemahasiswaan/senat" },
+        { title: "Dewan Perwakilan Mahasiswa", href: "/kemahasiswaan/senat" },
         { title: "Prestasi Mahasiswa", href: "/kemahasiswaan/prestasi" },
       ],
     },
