@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
 import {
   GraduationCap,
@@ -297,13 +298,6 @@ export default function ProsedurLegalisir() {
                         </div>
                       </CardContent>
                     </Card>
-
-                    {/* Arrow for next step */}
-                    {!isLast && (
-                      <div className="flex justify-center my-6">
-                        <ArrowRight className="w-8 h-8 text-stis-blue-400" />
-                      </div>
-                    )}
                   </div>
                 );
               })}
@@ -312,187 +306,7 @@ export default function ProsedurLegalisir() {
         </div>
       </section>
 
-      {/* Kontak Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="font-display font-bold text-3xl lg:text-4xl text-gray-900 mb-12 text-center">
-              Informasi Kontak
-            </h2>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              <Card className="hover:shadow-lg transition-all duration-300">
-                <CardHeader>
-                  <CardTitle className="flex items-center text-stis-blue-900">
-                    <Phone className="w-6 h-6 mr-3" />
-                    Telepon
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700 font-medium mb-2">
-                    {kontak.telepon}
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    Konfirmasi penerimaan surat pos minimal 1 hari kerja setelah
-                    pengiriman
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-lg transition-all duration-300">
-                <CardHeader>
-                  <CardTitle className="flex items-center text-stis-blue-900">
-                    <Mail className="w-6 h-6 mr-3" />
-                    Email
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700 font-medium mb-2">
-                    {kontak.email}
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    Gunakan email pribadi, bukan email BPS
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-lg transition-all duration-300">
-                <CardHeader>
-                  <CardTitle className="flex items-center text-stis-blue-900">
-                    <MapPin className="w-6 h-6 mr-3" />
-                    Alamat
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700 font-medium mb-2">
-                    {kontak.alamat}
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    Untuk pengiriman surat dan pengambilan langsung
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-lg transition-all duration-300">
-                <CardHeader>
-                  <CardTitle className="flex items-center text-stis-blue-900">
-                    <Clock className="w-6 h-6 mr-3" />
-                    Jam Kerja
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700 font-medium mb-2">
-                    {kontak.jamKerja}
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    Khusus hari kerja, tidak melayani hari libur
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-stis-blue-600 to-stis-blue-700">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-3xl mx-auto">
-            <h3 className="font-display font-bold text-2xl lg:text-3xl text-white mb-4">
-              Siap Mengajukan Legalisir?
-            </h3>
-            <p className="text-stis-blue-100 mb-8 leading-relaxed">
-              Pastikan semua persyaratan telah lengkap sebelum mengirimkan
-              permohonan. Tim kami siap membantu proses legalisir Anda.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-stis-orange-600 hover:bg-stis-orange-700 text-white border-none"
-                onClick={() => window.open(`mailto:${kontak.email}`, "_blank")}
-              >
-                <Mail className="w-5 h-5 mr-2" />
-                Kirim Email
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-stis-blue-700"
-                onClick={() =>
-                  window.open(`tel:${kontak.telepon.split(" ")[0]}`, "_blank")
-                }
-              >
-                <Phone className="w-5 h-5 mr-2" />
-                Hubungi Kami
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-4 gap-8">
-            <div className="lg:col-span-2">
-              <div className="flex items-center space-x-4 mb-6">
-                <div className="w-12 h-12 bg-stis-blue-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">S</span>
-                </div>
-                <div>
-                  <h3 className="font-display font-bold text-xl">
-                    Politeknik Statistika STIS
-                  </h3>
-                  <p className="text-gray-400">Sekolah Tinggi Ilmu Statistik</p>
-                </div>
-              </div>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                Politeknik Statistika STIS adalah institusi pendidikan tinggi
-                yang mengkhususkan diri dalam bidang statistik dan komputasi
-                statistik.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="font-bold text-lg mb-4">Layanan Alumni</h4>
-              <ul className="space-y-2 text-gray-300">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Legalisir Ijazah
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Surat Keterangan
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Database Alumni
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-bold text-lg mb-4">Kontak</h4>
-              <ul className="space-y-2 text-gray-300">
-                <li>Jl. Otto Iskandardinata No.64C</li>
-                <li>Jakarta Timur 13330</li>
-                <li>Telepon: (021) 8191437</li>
-                <li>Email: alumni@stis.ac.id</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>
-              &copy; 2024 Politeknik Statistika STIS. Seluruh hak cipta
-              dilindungi.
-            </p>
-          </div>
-        </div>
-      </footer>
+  <Footer />
     </div>
   );
 }
