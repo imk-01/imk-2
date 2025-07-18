@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import Footer from "@/components/Footer";
 import { useState } from "react";
 import {
   FileText,
@@ -317,36 +318,62 @@ export default function InformasiPublik() {
                                   Pilih dokumen ({doc.downloads.length} file)
                                 </DropdownMenuLabel>
                                 <DropdownMenuSeparator />
-                                {doc.downloads.map(
-                                  (download, downloadIndex) => (
-                                    <DropdownMenuItem
-                                      key={downloadIndex}
-                                      className="flex items-center space-x-3 p-3 cursor-pointer hover:bg-stis-blue-50"
-                                      onClick={() => {
-                                        const link =
-                                          document.createElement("a");
-                                        link.href = download.url;
-                                        link.download = download.name;
-                                        document.body.appendChild(link);
-                                        link.click();
-                                        document.body.removeChild(link);
-                                      }}
-                                    >
-                                      <div className="flex-shrink-0">
-                                        {getFileIcon(download.format)}
-                                      </div>
-                                      <div className="flex-1 min-w-0">
-                                        <div className="font-medium text-gray-900 truncate">
-                                          {download.name}
-                                        </div>
-                                        <div className="text-xs text-gray-500">
-                                          {download.size} • {download.format}
-                                        </div>
-                                      </div>
-                                      <Download className="w-4 h-4 text-stis-green-600 flex-shrink-0" />
-                                    </DropdownMenuItem>
-                                  ),
-                                )}
+{doc.downloads?.map(
+  (download, downloadIndex) => {
+    
+    // Logika untuk menampilkan item dropdown
+    const dropdownItemContent = (
+        <>
+            <div className="flex-shrink-0">
+                {getFileIcon(download.format)}
+            </div>
+            <div className="flex-1 min-w-0">
+                <div className="font-medium text-gray-900 truncate">
+                    {download.name}
+                </div>
+                <div className="text-xs text-gray-500">
+                    {download.size} • {download.format}
+                </div>
+            </div>
+            <Download className="w-4 h-4 text-stis-green-600 flex-shrink-0" />
+        </>
+    );
+
+    if (download.openInNewTab) {
+      // Render sebagai tautan <a> yang dibungkus oleh DropdownMenuItem asChild
+      return (
+        <DropdownMenuItem key={downloadIndex} asChild>
+          <a
+            href={download.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-3 p-3 cursor-pointer hover:bg-stis-blue-50"
+          >
+            {dropdownItemContent}
+          </a>
+        </DropdownMenuItem>
+      );
+    }
+
+    // Render sebagai item yang memicu download
+    return (
+      <DropdownMenuItem
+        key={downloadIndex}
+        className="flex items-center space-x-3 p-3 cursor-pointer hover:bg-stis-blue-50"
+        onClick={() => {
+          const link = document.createElement("a");
+          link.href = download.url;
+          link.download = download.name;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }}
+      >
+        {dropdownItemContent}
+      </DropdownMenuItem>
+    );
+  },
+)}
                               </DropdownMenuContent>
                             </DropdownMenu>
                           )}
@@ -406,68 +433,8 @@ export default function InformasiPublik() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-4 gap-8">
-            <div className="lg:col-span-2">
-              <div className="flex items-center space-x-4 mb-6">
-                <div className="w-12 h-12 bg-stis-blue-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">S</span>
-                </div>
-                <div>
-                  <h3 className="font-display font-bold text-xl">
-                    Politeknik Statistika STIS
-                  </h3>
-                  <p className="text-gray-400">Sekolah Tinggi Ilmu Statistik</p>
-                </div>
-              </div>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                Politeknik Statistika STIS adalah institusi pendidikan tinggi
-                yang mengkhususkan diri dalam bidang statistik dan komputasi
-                statistik.
-              </p>
-            </div>
+      <Footer />
 
-            <div>
-              <h4 className="font-bold text-lg mb-4">Program Studi</h4>
-              <ul className="space-y-2 text-gray-300">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    D3 Statistika
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    D4 Statistika
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    D4 Komputasi Statistika
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-bold text-lg mb-4">Kontak</h4>
-              <ul className="space-y-2 text-gray-300">
-                <li>Jl. Otto Iskandardinata No.64C</li>
-                <li>Jakarta Timur 13330</li>
-                <li>Telepon: (021) 8191437</li>
-                <li>Email: info@stis.ac.id</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>
-              &copy; 2024 Politeknik Statistika STIS. Seluruh hak cipta
-              dilindungi.
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
