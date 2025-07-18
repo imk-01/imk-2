@@ -32,12 +32,12 @@ export default function Galeri() {
   const galleries = [
     {
       id: 1,
-      title: "Wisuda Semester Genap 2023/2024",
+      title: "Wisuda Ke-62 Politeknik Statistika STIS",
       category: "wisuda",
       date: "23 Juni 2024",
       description:
-        "Upacara wisuda Sarjana Terapan Statistika periode semester genap tahun akademik 2023/2024",
-      image: "/api/placeholder/400/300",
+        "Merayakan kelulusan 677 mahasiswa yang telah bekerja keras, belajar tanpa lelah, dan berjuang melewati segala tantangan.",
+      image: "/wisuda.png",
       totalPhotos: 45,
       featured: true,
     },
@@ -47,8 +47,8 @@ export default function Galeri() {
       category: "pkkmb",
       date: "26-30 Agustus 2024",
       description:
-        "Masa Perkenalan Kehidupan Kampus Mahasiswa Baru (PKKMB) angkatan 2024",
-      image: "/api/placeholder/400/300",
+        "Masa Perkenalan Kehidupan Kampus Mahasiswa Baru (PKKMB) angkatan 66",
+      image: "/pkkmb.png",
       totalPhotos: 67,
       featured: true,
     },
