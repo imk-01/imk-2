@@ -2,7 +2,6 @@ import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import Footer from "@/components/Footer";
 import { useState } from "react";
 import {
   FileText,
@@ -19,59 +18,139 @@ import {
   Globe,
   Search,
   Filter,
+  ChevronDown,
+  Eye,
+  DownloadCloud,
+  File,
+  FileSpreadsheet,
+  Archive,
 } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  DropdownMenuSeparator,
+  DropdownMenuLabel,
+} from "@/components/ui/dropdown-menu";
 
 export default function InformasiPublik() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Semua");
 
-  const publicDocuments = [
+    const publicDocuments = [
     {
       title: "Rencana Strategis 2024-2029",
       description:
         "Dokumen perencanaan strategis institusi untuk periode 2024-2029",
       category: "Perencanaan",
       updated: "Januari 2024",
-      size: "2.5 MB",
-      format: "PDF",
       href: "/informasi-publik/renstra",
       icon: Target,
       color: "bg-stis-blue-600",
+      downloads: [
+        {
+          name: "Renstra 2024-2029 (Bahasa Indonesia)",
+          size: "2.5 MB",
+          format: "PDF",
+          url: "/docs/renstra-2024-2029-id.pdf",
+        },
+        {
+          name: "Strategic Plan 2024-2029 (English)",
+          size: "2.8 MB",
+          format: "PDF",
+          url: "/docs/strategic-plan-2024-2029-en.pdf",
+        },
+        {
+          name: "Ringkasan Eksekutif",
+          size: "850 KB",
+          format: "PDF",
+          url: "/docs/renstra-ringkasan.pdf",
+        },
+      ],
     },
-    {
+        {
       title: "Laporan Pelayanan Publik 2023",
       description:
         "Laporan tahunan pelayanan publik dan tingkat kepuasan masyarakat",
       category: "Laporan",
       updated: "Maret 2024",
-      size: "1.8 MB",
-      format: "PDF",
       href: "/informasi-publik/laporan-pelayanan",
       icon: Users,
       color: "bg-stis-green-600",
+      downloads: [
+        {
+          name: "Laporan Pelayanan Publik 2023",
+          size: "1.8 MB",
+          format: "PDF",
+          url: "/docs/laporan-pelayanan-2023.pdf",
+        },
+        {
+          name: "Data Kepuasan Pelayanan",
+          size: "450 KB",
+          format: "XLSX",
+          url: "/docs/data-kepuasan-2023.xlsx",
+        },
+        {
+          name: "Grafik dan Visualisasi",
+          size: "2.1 MB",
+          format: "PDF",
+          url: "/docs/visualisasi-pelayanan-2023.pdf",
+        },
+      ],
     },
-    {
+        {
       title: "Peraturan Akademik Terbaru",
       description: "Kumpulan peraturan akademik dan kemahasiswaan yang berlaku",
       category: "Regulasi",
       updated: "Februari 2024",
-      size: "3.2 MB",
-      format: "PDF",
       href: "/informasi-publik/peraturan",
       icon: BookOpen,
       color: "bg-stis-orange-600",
+      downloads: [
+        {
+          name: "Peraturan Akademik Lengkap",
+          size: "3.2 MB",
+          format: "PDF",
+          url: "/docs/peraturan-akademik-2024.pdf",
+        },
+        {
+          name: "Peraturan Kemahasiswaan",
+          size: "1.5 MB",
+          format: "PDF",
+          url: "/docs/peraturan-kemahasiswaan.pdf",
+        },
+        {
+          name: "Panduan Akademik Mahasiswa",
+          size: "2.8 MB",
+          format: "PDF",
+          url: "/docs/panduan-akademik-mhs.pdf",
+        },
+        {
+          name: "SK Direktur terkait Akademik",
+          size: "850 KB",
+          format: "ZIP",
+          url: "/docs/sk-direktur-akademik.zip",
+        },
+      ],
     },
-    {
+        {
       title: "Perjanjian Kinerja 2024",
       description:
         "Dokumen perjanjian kinerja institusi dengan Kementerian Pendidikan",
       category: "Kontrak",
       updated: "Januari 2024",
-      size: "1.2 MB",
-      format: "PDF",
       href: "/informasi-publik/perjanjian-kinerja",
       icon: FileText,
       color: "bg-purple-600",
+      downloads: [
+        {
+          name: "Perjanjian Kinerja 2024",
+          size: "1.2 MB",
+          format: "PDF",
+          url: "/docs/perjanjian-kinerja-2024.pdf",
+        },
+      ],
     },
     {
       title: "Indikator Kinerja Utama",
@@ -79,11 +158,23 @@ export default function InformasiPublik() {
         "Key Performance Indicators (KPI) dan target pencapaian institusi",
       category: "Monitoring",
       updated: "Desember 2023",
-      size: "950 KB",
-      format: "PDF",
       href: "/informasi-publik/iku",
       icon: BarChart3,
       color: "bg-indigo-600",
+      downloads: [
+        {
+          name: "IKU 2024-2029",
+          size: "950 KB",
+          format: "PDF",
+          url: "/docs/iku-2024-2029.pdf",
+        },
+        {
+          name: "Target dan Realisasi IKU",
+          size: "650 KB",
+          format: "XLSX",
+          url: "/docs/target-realisasi-iku.xlsx",
+        },
+      ],
     },
     {
       title: "Laporan Kinerja 2023",
@@ -91,11 +182,29 @@ export default function InformasiPublik() {
         "Laporan pencapaian kinerja institusi berdasarkan target yang ditetapkan",
       category: "Laporan",
       updated: "Maret 2024",
-      size: "2.1 MB",
-      format: "PDF",
       href: "/informasi-publik/laporan-kinerja",
       icon: TrendingUp,
       color: "bg-teal-600",
+      downloads: [
+        {
+          name: "Laporan Kinerja 2023 Lengkap",
+          size: "2.1 MB",
+          format: "PDF",
+          url: "/docs/laporan-kinerja-2023.pdf",
+        },
+        {
+          name: "Ringkasan Eksekutif",
+          size: "450 KB",
+          format: "PDF",
+          url: "/docs/ringkasan-lapkin-2023.pdf",
+        },
+        {
+          name: "Data Pendukung",
+          size: "1.2 MB",
+          format: "XLSX",
+          url: "/docs/data-lapkin-2023.xlsx",
+        },
+      ],
     },
     {
       title: "Perjanjian Kerja Sama",
@@ -103,11 +212,35 @@ export default function InformasiPublik() {
         "Dokumen kerjasama dengan berbagai institusi dalam dan luar negeri",
       category: "Kerjasama",
       updated: "Februari 2024",
-      size: "1.5 MB",
-      format: "ZIP",
       href: "/informasi-publik/kerja-sama",
       icon: Globe,
       color: "bg-cyan-600",
+      downloads: [
+        {
+          name: "MoU Universitas Dalam Negeri",
+          size: "2.8 MB",
+          format: "ZIP",
+          url: "/docs/mou-universitas-dn.zip",
+        },
+        {
+          name: "MoU Universitas Luar Negeri",
+          size: "1.9 MB",
+          format: "ZIP",
+          url: "/docs/mou-universitas-ln.zip",
+        },
+        {
+          name: "MoU Industri dan Pemerintah",
+          size: "1.1 MB",
+          format: "ZIP",
+          url: "/docs/mou-industri-pemerintah.zip",
+        },
+        {
+          name: "Semua Dokumen Kerjasama",
+          size: "5.8 MB",
+          format: "ZIP",
+          url: "/docs/semua-mou.zip",
+        },
+      ],
     },
     {
       title: "Maklumat Pelayanan",
@@ -115,23 +248,59 @@ export default function InformasiPublik() {
         "Standar pelayanan publik dan komitmen kualitas layanan STIS",
       category: "Pelayanan",
       updated: "Januari 2024",
-      size: "800 KB",
-      format: "PDF",
       href: "/informasi-publik/maklumat",
       icon: Shield,
       color: "bg-emerald-600",
+      downloads: [
+        {
+          name: "Maklumat Pelayanan 2024",
+          size: "800 KB",
+          format: "PDF",
+          url: "/docs/maklumat-pelayanan-2024.pdf",
+        },
+      ],
     },
-    {
+        {
       title: "Dokumen Akreditasi",
       description:
         "Sertifikat akreditasi institusi dan program studi dari BAN-PT",
       category: "Akreditasi",
       updated: "Oktober 2023",
-      size: "2.8 MB",
-      format: "ZIP",
       href: "/informasi-publik/akreditasi",
       icon: Award,
       color: "bg-amber-600",
+      downloads: [
+        {
+          name: "Sertifikat Akreditasi Institusi",
+          size: "1.2 MB",
+          format: "PDF",
+          url: "/docs/akreditasi-institusi.pdf",
+        },
+        {
+          name: "Akreditasi D3 Statistika",
+          size: "950 KB",
+          format: "PDF",
+          url: "/docs/akreditasi-d3-statistika.pdf",
+        },
+        {
+          name: "Akreditasi D4 Statistika",
+          size: "980 KB",
+          format: "PDF",
+          url: "/docs/akreditasi-d4-statistika.pdf",
+        },
+        {
+          name: "Akreditasi D4 Komputasi Statistika",
+          size: "1.1 MB",
+          format: "PDF",
+          url: "/docs/akreditasi-d4-komstat.pdf",
+        },
+        {
+          name: "Semua Dokumen Akreditasi",
+          size: "4.2 MB",
+          format: "ZIP",
+          url: "/docs/akreditasi-lengkap.zip",
+        },
+      ],
     },
   ];
 
@@ -365,30 +534,103 @@ export default function InformasiPublik() {
                         <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                           {doc.description}
                         </p>
-                        <div className="space-y-2 mb-4">
+                                                <div className="space-y-2 mb-4">
                           <div className="flex justify-between text-xs text-gray-500">
                             <span>Update: {doc.updated}</span>
                             <span>
-                              {doc.size} • {doc.format}
+                              {doc.downloads?.length} file{doc.downloads?.length !== 1 ? 's' : ''}
                             </span>
                           </div>
                         </div>
-                        <div className="flex gap-2">
+                                                <div className="flex gap-2">
                           <Button
                             size="sm"
                             className="flex-1 bg-stis-blue-600 hover:bg-stis-blue-700"
                             onClick={() => (window.location.href = doc.href)}
                           >
-                            <FileText className="w-4 h-4 mr-2" />
-                            Lihat
+                            <Eye className="w-4 h-4 mr-2" />
+                            Lihat Detail
                           </Button>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            className="border-stis-green-600 text-stis-green-600 hover:bg-stis-green-600 hover:text-white"
-                          >
-                            <Download className="w-4 h-4" />
-                          </Button>
+
+                          {doc.downloads && doc.downloads.length === 1 ? (
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              className="border-stis-green-600 text-stis-green-600 hover:bg-stis-green-600 hover:text-white"
+                              onClick={() => {
+                                const link = document.createElement('a');
+                                link.href = doc.downloads[0].url;
+                                link.download = doc.downloads[0].name;
+                                document.body.appendChild(link);
+                                link.click();
+                                document.body.removeChild(link);
+                              }}
+                            >
+                              <Download className="w-4 h-4" />
+                            </Button>
+                          ) : (
+                            <DropdownMenu>
+                              <DropdownMenuTrigger asChild>
+                                <Button
+                                  size="sm"
+                                  variant="outline"
+                                  className="border-stis-green-600 text-stis-green-600 hover:bg-stis-green-600 hover:text-white"
+                                >
+                                  <DownloadCloud className="w-4 h-4 mr-1" />
+                                  <ChevronDown className="w-3 h-3" />
+                                </Button>
+                              </DropdownMenuTrigger>
+                              <DropdownMenuContent align="end" className="w-80">
+                                <DropdownMenuLabel className="text-stis-blue-900 font-semibold">
+                                  Pilih dokumen untuk diunduh
+                                </DropdownMenuLabel>
+                                <DropdownMenuSeparator />
+                                {doc.downloads?.map((download, downloadIndex) => {
+                                  const getFileIcon = (format: string) => {
+                                    switch (format.toLowerCase()) {
+                                      case 'pdf':
+                                        return <File className="w-4 h-4 text-red-600" />;
+                                      case 'xlsx':
+                                      case 'xls':
+                                        return <FileSpreadsheet className="w-4 h-4 text-green-600" />;
+                                      case 'zip':
+                                        return <Archive className="w-4 h-4 text-orange-600" />;
+                                      default:
+                                        return <FileText className="w-4 h-4 text-gray-600" />;
+                                    }
+                                  };
+
+                                  return (
+                                    <DropdownMenuItem
+                                      key={downloadIndex}
+                                      className="flex items-center space-x-3 p-3 cursor-pointer hover:bg-stis-blue-50"
+                                      onClick={() => {
+                                        const link = document.createElement('a');
+                                        link.href = download.url;
+                                        link.download = download.name;
+                                        document.body.appendChild(link);
+                                        link.click();
+                                        document.body.removeChild(link);
+                                      }}
+                                    >
+                                      <div className="flex-shrink-0">
+                                        {getFileIcon(download.format)}
+                                      </div>
+                                      <div className="flex-1 min-w-0">
+                                        <div className="font-medium text-gray-900 truncate">
+                                          {download.name}
+                                        </div>
+                                        <div className="text-xs text-gray-500">
+                                          {download.size} • {download.format}
+                                        </div>
+                                      </div>
+                                      <Download className="w-4 h-4 text-stis-green-600 flex-shrink-0" />
+                                    </DropdownMenuItem>
+                                  );
+                                })}
+                              </DropdownMenuContent>
+                            </DropdownMenu>
+                          )}
                         </div>
                       </CardContent>
                     </Card>
@@ -444,7 +686,69 @@ export default function InformasiPublik() {
         </div>
       </section>
 
-      <Footer />
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-4 gap-8">
+            <div className="lg:col-span-2">
+              <div className="flex items-center space-x-4 mb-6">
+                <div className="w-12 h-12 bg-stis-blue-600 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-xl">S</span>
+                </div>
+                <div>
+                  <h3 className="font-display font-bold text-xl">
+                    Politeknik Statistika STIS
+                  </h3>
+                  <p className="text-gray-400">Sekolah Tinggi Ilmu Statistik</p>
+                </div>
+              </div>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                Politeknik Statistika STIS adalah institusi pendidikan tinggi
+                yang mengkhususkan diri dalam bidang statistik dan komputasi
+                statistik.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="font-bold text-lg mb-4">Program Studi</h4>
+              <ul className="space-y-2 text-gray-300">
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    D3 Statistika
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    D4 Statistika
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    D4 Komputasi Statistika
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-bold text-lg mb-4">Kontak</h4>
+              <ul className="space-y-2 text-gray-300">
+                <li>Jl. Otto Iskandardinata No.64C</li>
+                <li>Jakarta Timur 13330</li>
+                <li>Telepon: (021) 8191437</li>
+                <li>Email: info@stis.ac.id</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+            <p>
+              &copy; 2024 Politeknik Statistika STIS. Seluruh hak cipta
+              dilindungi.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

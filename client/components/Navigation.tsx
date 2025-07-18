@@ -84,20 +84,20 @@ export default function Navigation() {
       title: "Layanan",
       href: "/layanan",
       subItems: [
-        { title: "Daftar Layanan", href: "/layanan/daftar" },
-        { title: "SIMPUS", href: "/layanan/simpus" },
+        { title: "Portal Direktori Layanan", href: "https://layanan.stis.ac.id/", newTab: true },
+        { title: "SIMPUS", href: "https://simpus.stis.ac.id/", newTab: true },
         {
           title: "Prosedur Legalisir Ijazah/Transkrip",
           href: "/layanan/legalisir",
         },
         { title: "Sistem Penerimaan Mahasiswa Baru", href: "/layanan/spmb" },
         { title: "Webinar", href: "/layanan/webinar" },
-        { title: "Lembaga Sertifikasi Profesi", href: "/layanan/lsp" },
+        { title: "Lembaga Sertifikasi Profesi", href: "https://lsp.stis.ac.id/", newTab: true },
         {
           title: "Pusat Penelitian dan Pengabdian kepada Masyarakat",
-          href: "/layanan/penelitian",
+          href: "https://pppm.stis.ac.id/", newTab: true,
         },
-        { title: "Satuan Penjamin Mutu", href: "/layanan/spm" },
+        { title: "Satuan Penjamin Mutu", href: "https://spm.stis.ac.id/", newTab: true },
       ],
     },
     {
@@ -246,6 +246,8 @@ export default function Navigation() {
                           <a
                             key={subIndex}
                             href={subItem.href}
+                            target={subItem.newTab ? "_blank" : "_self"}
+                            rel={subItem.newTab ? "noopener noreferrer" : ""}
                             className={`block px-4 py-3 text-sm transition-colors ${isSubItemActive(subItem.href)
                                 ? "bg-stis-blue-600 text-white"
                                 : "text-gray-700 hover:bg-stis-blue-50 hover:text-stis-blue-600"
@@ -301,6 +303,8 @@ export default function Navigation() {
                             <a
                               key={subIndex}
                               href={subItem.href}
+                              target={subItem.newTab ? "_blank" : "_self"}
+                              rel={subItem.newTab ? "noopener noreferrer" : ""}
                               className={`block py-2 px-3 text-sm rounded-md transition-colors ${isSubItemActive(subItem.href)
                                   ? "bg-stis-blue-600 text-white"
                                   : "text-gray-600 hover:text-stis-blue-600 hover:bg-stis-blue-50"

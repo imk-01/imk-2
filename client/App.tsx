@@ -34,6 +34,7 @@ import OrganisasiKemahasiswaan from "./pages/OrganisasiKemahasiswaan";
 import SenatMahasiswa from "./pages/SenatMahasiswa";
 import PrestasiMahasiswa from "./pages/PrestasiMahasiswa";
 import SearchResults from "./pages/SearchResults";
+import ProsedurLegalisir from "./pages/ProsedurLegalisir";
 
 const queryClient = new QueryClient();
 
@@ -92,6 +93,7 @@ const App = () => (
             element={<MaklumatPelayanan />}
           />
           <Route path="/informasi-publik/*" element={<NotFound />} />
+          <Route path="/layanan/legalisir" element={<ProsedurLegalisir />} />
           <Route path="/layanan/*" element={<NotFound />} />
           <Route path="/spmb-2025" element={<NotFound />} />
           <Route path="/feedback" element={<NotFound />} />
