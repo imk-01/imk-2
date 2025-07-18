@@ -35,6 +35,15 @@ import SenatMahasiswa from "./pages/SenatMahasiswa";
 import PrestasiMahasiswa from "./pages/PrestasiMahasiswa";
 import SearchResults from "./pages/SearchResults";
 import ProsedurLegalisir from "./pages/ProsedurLegalisir";
+import RencanaStrategisDetail from "./pages/RencanaStrategisDetail";
+import LaporanKinerjaDetail from "./pages/LaporanKinerjaDetail";
+import AkreditasiDetail from "./pages/AkreditasiDetail";
+import LaporanPelayananPublikDetail from "./pages/LaporanPelayananPublikDetail";
+import PeraturanAkademikDetail from "./pages/PeraturanAkademikDetail";
+import PerjanjianKinerjaDetail from "./pages/PerjanjianKinerjaDetail";
+import IndikatorKinerjaUtamaDetail from "./pages/IndikatorKinerjaUtamaDetail";
+import PerjanjianKerjaSamaDetail from "./pages/PerjanjianKerjaSamaDetail";
+import MaklumatPelayananDetail from "./pages/MaklumatPelayananDetail";
 
 const queryClient = new QueryClient();
 
@@ -82,15 +91,39 @@ const App = () => (
           <Route path="/informasi-publik" element={<InformasiPublik />} />
           <Route
             path="/informasi-publik/renstra"
-            element={<RencanaStrategis />}
+            element={<RencanaStrategisDetail />}
           />
           <Route
-            path="/informasi-publik/akreditasi"
-            element={<AkreditasiSTIS />}
+            path="/informasi-publik/laporan-pelayanan"
+            element={<LaporanPelayananPublikDetail />}
+          />
+          <Route
+            path="/informasi-publik/peraturan"
+            element={<PeraturanAkademikDetail />}
+          />
+          <Route
+            path="/informasi-publik/perjanjian-kinerja"
+            element={<PerjanjianKinerjaDetail />}
+          />
+          <Route
+            path="/informasi-publik/iku"
+            element={<IndikatorKinerjaUtamaDetail />}
+          />
+          <Route
+            path="/informasi-publik/laporan-kinerja"
+            element={<LaporanKinerjaDetail />}
+          />
+          <Route
+            path="/informasi-publik/kerja-sama"
+            element={<PerjanjianKerjaSamaDetail />}
           />
           <Route
             path="/informasi-publik/maklumat"
-            element={<MaklumatPelayanan />}
+            element={<MaklumatPelayananDetail />}
+          />
+          <Route
+            path="/informasi-publik/akreditasi"
+            element={<AkreditasiDetail />}
           />
           <Route path="/informasi-publik/*" element={<NotFound />} />
           <Route path="/layanan/legalisir" element={<ProsedurLegalisir />} />
