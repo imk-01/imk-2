@@ -90,7 +90,7 @@ export default function Navigation() {
           title: "Prosedur Legalisir Ijazah/Transkrip",
           href: "/layanan/legalisir",
         },
-        { title: "Sistem Penerimaan Mahasiswa Baru", href: "/layanan/spmb" },
+        { title: "Sistem Penerimaan Mahasiswa Baru", href: "https://spmb.stis.ac.id/" },
         { title: "Webinar", href: "/layanan/webinar" },
         { title: "Lembaga Sertifikasi Profesi", href: "/layanan/lsp" },
         {
@@ -102,7 +102,7 @@ export default function Navigation() {
     },
     {
       title: "SPMB 2025",
-      href: "/spmb-2025",
+      href: "https://spmb.stis.ac.id/",
       highlight: true,
     },
   ];
@@ -227,6 +227,8 @@ export default function Navigation() {
                       // RENDER AS <a> TAG if it has NO sub-items (is a link)
                       <a
                         href={item.href}
+                        target={item.href.startsWith("http") ? "_blank" : undefined}
+                        rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                         className={`flex items-center space-x-2 px-4 py-3 text-sm font-medium rounded-md transition-colors duration-200 ${item.highlight
                             ? "bg-stis-orange-500 text-white hover:bg-stis-orange-600"
                             : itemIsActive
@@ -285,6 +287,8 @@ export default function Navigation() {
                     <div key={index}>
                       <a
                         href={item.href}
+                        target={item.href.startsWith("http") ? "_blank" : undefined}
+                        rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                         className={`flex items-center space-x-3 font-medium py-3 px-3 rounded-md transition-colors ${item.highlight
                             ? "bg-stis-orange-500 text-white hover:bg-stis-orange-600"
                             : itemIsActive

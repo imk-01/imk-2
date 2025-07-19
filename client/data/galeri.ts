@@ -1,0 +1,133 @@
+export const galeriList = [
+    {
+      id: 1,
+      title: "Wisuda Ke-62 Politeknik Statistika STIS",
+      slug: "wisuda-ke-62",
+      category: "wisuda",
+      date: "23 Juni 2024",
+      description:
+        "Merayakan kelulusan 677 mahasiswa yang telah bekerja keras, belajar tanpa lelah, dan berjuang melewati segala tantangan.",
+      image: "/wisuda.png",
+      featured: true,
+      images: [
+        {
+          id: 1,
+          url: "/api/placeholder/800/600",
+          thumbnail: "/api/placeholder/300/200",
+          caption: "Prosesi wisuda di Auditorium STIS",
+          title: "Opening Ceremony",
+        },
+        {
+          id: 2,
+          url: "/api/placeholder/800/600",
+          thumbnail: "/api/placeholder/300/200",
+          caption: "Sambutan Direktur STIS",
+          title: "Sambutan Direktur",
+        },
+      ],
+    },
+    {
+      id: 2,
+      title: "PKKMB Mahasiswa Baru 2024",
+      slug: "pkkmb-2024",
+      category: "pkkmb",
+      date: "26-30 Agustus 2024",
+      description:
+        "Masa Perkenalan Kehidupan Kampus Mahasiswa Baru (PKKMB) angkatan 66",
+      image: "/pkkmb.png",
+      featured: true,
+      images: [
+        {
+          id: 1,
+          url: "/api/placeholder/800/600",
+          thumbnail: "/api/placeholder/300/200",
+          caption: "Pembukaan PKKMB 2024",
+          title: "Opening PKKMB",
+        },
+      ],
+    },
+    {
+      id: 3,
+      title: "Seminar Nasional Big Data Analytics",
+      slug: "seminar-big-data-2024",
+      category: "kegiatan",
+      date: "10 Maret 2024",
+      description:
+        "Seminar nasional dengan tema Big Data Analytics dan Machine Learning",
+      image: "/api/placeholder/400/300",
+      featured: false,
+      images: [],
+    },
+    {
+      id: 4,
+      title: "Juara 1 Kompetisi Data Science",
+      slug: "juara-data-science-2024",
+      category: "prestasi",
+      date: "5 Maret 2024",
+      description:
+        "Tim mahasiswa STIS meraih juara 1 kompetisi Data Science tingkat nasional",
+      image: "/api/placeholder/400/300",
+      featured: true,
+      images: [],
+    },
+    {
+      id: 5,
+      title: "Laboratorium Komputer Terbaru",
+      slug: "lab-komputer-baru",
+      category: "fasilitas",
+      date: "15 Februari 2024",
+      description:
+        "Fasilitas laboratorium komputer dengan teknologi terkini untuk mendukung pembelajaran",
+      image: "/api/placeholder/400/300",
+      featured: false,
+      images: [],
+    },
+    {
+      id: 6,
+      title: "Dies Natalis STIS ke-66",
+      slug: "dies-natalis-66",
+      category: "kegiatan",
+      date: "16 September 2023",
+      description:
+        "Peringatan Dies Natalis STIS yang ke-66 dengan berbagai rangkaian acara",
+      image: "/api/placeholder/400/300",
+      featured: false,
+      images: [],
+    },
+    {
+      id: 7,
+      title: "Perpustakaan Digital STIS",
+      slug: "perpus-digital",
+      category: "fasilitas",
+      date: "1 Februari 2024",
+      description:
+        "Fasilitas perpustakaan digital dengan koleksi lengkap dan ruang belajar modern",
+      image: "/api/placeholder/400/300",
+      featured: false,
+      images: [],
+    },
+    {
+      id: 8,
+      title: "Workshop Machine Learning",
+      slug: "workshop-ml-2024",
+      category: "kegiatan",
+      date: "25 Januari 2024",
+      description:
+        "Workshop intensif Machine Learning untuk mahasiswa dengan praktik langsung",
+      image: "/api/placeholder/400/300",
+      featured: false,
+      images: [],
+    },
+    {
+      id: 9,
+      title: "Turnamen Futsal Antar Jurusan",
+      slug: "futsal-antar-jurusan-2023",
+      category: "prestasi",
+      date: "12 Desember 2023",
+      description:
+        "Kompetisi futsal antar jurusan dalam rangka mempererat tali persaudaraan",
+      image: "/api/placeholder/400/300",
+      featured: false,
+      images: [],
+    },
+  ];

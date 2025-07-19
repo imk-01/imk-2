@@ -15,6 +15,7 @@ import {
   Download,
 } from "lucide-react";
 import { useState } from "react";
+import { galeriList } from "@/data/galeri"; // Import data
 
 export default function Galeri() {
   const [selectedCategory, setSelectedCategory] = useState("semua");
@@ -29,109 +30,7 @@ export default function Galeri() {
     { id: "pkkmb", label: "PKKMB", icon: Heart },
   ];
 
-  const galleries = [
-    {
-      id: 1,
-      title: "Wisuda Ke-62 Politeknik Statistika STIS",
-      category: "wisuda",
-      date: "23 Juni 2024",
-      description:
-        "Merayakan kelulusan 677 mahasiswa yang telah bekerja keras, belajar tanpa lelah, dan berjuang melewati segala tantangan.",
-      image: "/wisuda.png",
-      totalPhotos: 45,
-      featured: true,
-    },
-    {
-      id: 2,
-      title: "PKKMB Mahasiswa Baru 2024",
-      category: "pkkmb",
-      date: "26-30 Agustus 2024",
-      description:
-        "Masa Perkenalan Kehidupan Kampus Mahasiswa Baru (PKKMB) angkatan 66",
-      image: "/pkkmb.png",
-      totalPhotos: 67,
-      featured: true,
-    },
-    {
-      id: 3,
-      title: "Seminar Nasional Big Data Analytics",
-      category: "kegiatan",
-      date: "10 Maret 2024",
-      description:
-        "Seminar nasional dengan tema Big Data Analytics dan Machine Learning",
-      image: "/api/placeholder/400/300",
-      totalPhotos: 32,
-      featured: false,
-    },
-    {
-      id: 4,
-      title: "Juara 1 Kompetisi Data Science",
-      category: "prestasi",
-      date: "5 Maret 2024",
-      description:
-        "Tim mahasiswa STIS meraih juara 1 kompetisi Data Science tingkat nasional",
-      image: "/api/placeholder/400/300",
-      totalPhotos: 28,
-      featured: true,
-    },
-    {
-      id: 5,
-      title: "Laboratorium Komputer Terbaru",
-      category: "fasilitas",
-      date: "15 Februari 2024",
-      description:
-        "Fasilitas laboratorium komputer dengan teknologi terkini untuk mendukung pembelajaran",
-      image: "/api/placeholder/400/300",
-      totalPhotos: 18,
-      featured: false,
-    },
-    {
-      id: 6,
-      title: "Dies Natalis STIS ke-66",
-      category: "kegiatan",
-      date: "16 September 2023",
-      description:
-        "Peringatan Dies Natalis STIS yang ke-66 dengan berbagai rangkaian acara",
-      image: "/api/placeholder/400/300",
-      totalPhotos: 89,
-      featured: false,
-    },
-    {
-      id: 7,
-      title: "Perpustakaan Digital STIS",
-      category: "fasilitas",
-      date: "1 Februari 2024",
-      description:
-        "Fasilitas perpustakaan digital dengan koleksi lengkap dan ruang belajar modern",
-      image: "/api/placeholder/400/300",
-      totalPhotos: 15,
-      featured: false,
-    },
-    {
-      id: 8,
-      title: "Workshop Machine Learning",
-      category: "kegiatan",
-      date: "25 Januari 2024",
-      description:
-        "Workshop intensif Machine Learning untuk mahasiswa dengan praktik langsung",
-      image: "/api/placeholder/400/300",
-      totalPhotos: 41,
-      featured: false,
-    },
-    {
-      id: 9,
-      title: "Turnamen Futsal Antar Jurusan",
-      category: "prestasi",
-      date: "12 Desember 2023",
-      description:
-        "Kompetisi futsal antar jurusan dalam rangka mempererat tali persaudaraan",
-      image: "/api/placeholder/400/300",
-      totalPhotos: 36,
-      featured: false,
-    },
-  ];
-
-  const filteredGalleries = galleries.filter((gallery) => {
+  const filteredGalleries = galeriList.filter((gallery) => {
     const matchesCategory =
       selectedCategory === "semua" || gallery.category === selectedCategory;
     const matchesSearch =
@@ -141,7 +40,20 @@ export default function Galeri() {
     return matchesCategory && matchesSearch;
   });
 
-  const featuredGalleries = galleries.filter((gallery) => gallery.featured);
+  const featuredGalleries = galeriList.filter((gallery) => gallery.featured);
+
+  // Dynamic gallery statistics
+  const totalPhotos = galeriList.reduce(
+    (acc, gallery) => acc + gallery.images.length,
+    0,
+  );
+  const totalAlbums = galeriList.length;
+  const totalPrestasi = galeriList.filter(
+    (gallery) => gallery.category === "prestasi",
+  ).length;
+  const totalKegiatan = galeriList.filter(
+    (gallery) => gallery.category === "kegiatan",
+  ).length;
 
   return (
     <div className="min-h-screen bg-white">
@@ -177,10 +89,7 @@ export default function Galeri() {
                   key={gallery.id}
                   className="overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group"
                   onClick={() =>
-                    (window.location.href = `/galeri/album/${gallery.title
-                      .toLowerCase()
-                      .replace(/[^a-z0-9]+/g, "-")
-                      .replace(/(^-|-$)/g, "")}`)
+                    (window.location.href = `/galeri/album/${gallery.slug}`)
                   }
                 >
                   <div className="relative h-64 overflow-hidden">
@@ -193,7 +102,7 @@ export default function Galeri() {
                     <div className="absolute bottom-4 left-4 right-4">
                       <div className="flex items-center justify-between">
                         <span className="bg-stis-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                          {gallery.totalPhotos} Foto
+                          {gallery.images.length} Foto
                         </span>
                         <span className="bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
                           {gallery.date}
@@ -312,10 +221,7 @@ export default function Galeri() {
                     key={gallery.id}
                     className="overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group"
                     onClick={() =>
-                      (window.location.href = `/galeri/album/${gallery.title
-                        .toLowerCase()
-                        .replace(/[^a-z0-9]+/g, "-")
-                        .replace(/(^-|-$)/g, "")}`)
+                      (window.location.href = `/galeri/album/${gallery.slug}`)
                     }
                   >
                     <div className="relative h-56 overflow-hidden">
@@ -331,12 +237,12 @@ export default function Galeri() {
                             gallery.category === "wisuda"
                               ? "bg-purple-500 text-white"
                               : gallery.category === "kegiatan"
-                                ? "bg-blue-500 text-white"
-                                : gallery.category === "prestasi"
-                                  ? "bg-green-500 text-white"
-                                  : gallery.category === "fasilitas"
-                                    ? "bg-orange-500 text-white"
-                                    : "bg-pink-500 text-white"
+                              ? "bg-blue-500 text-white"
+                              : gallery.category === "prestasi"
+                              ? "bg-green-500 text-white"
+                              : gallery.category === "fasilitas"
+                              ? "bg-orange-500 text-white"
+                              : "bg-pink-500 text-white"
                           }`}
                         >
                           {
@@ -362,7 +268,7 @@ export default function Galeri() {
                           {gallery.date}
                         </span>
                         <span className="text-sm text-stis-orange-600 font-medium">
-                          {gallery.totalPhotos} foto
+                          {gallery.images.length} foto
                         </span>
                       </div>
                       <h3 className="font-bold text-lg text-gray-900 mb-3 group-hover:text-stis-orange-600 transition-colors line-clamp-2">
@@ -391,24 +297,28 @@ export default function Galeri() {
               <div className="p-6 bg-white rounded-lg shadow-sm">
                 <Camera className="w-12 h-12 text-stis-orange-500 mx-auto mb-4" />
                 <div className="text-3xl font-bold text-gray-900 mb-2">
-                  500+
+                  {totalPhotos}+
                 </div>
                 <div className="text-gray-600">Total Foto</div>
               </div>
               <div className="p-6 bg-white rounded-lg shadow-sm">
                 <Calendar className="w-12 h-12 text-stis-blue-500 mx-auto mb-4" />
-                <div className="text-3xl font-bold text-gray-900 mb-2">25+</div>
+                <div className="text-3xl font-bold text-gray-900 mb-2">
+                  {totalAlbums}+
+                </div>
                 <div className="text-gray-600">Album Galeri</div>
               </div>
               <div className="p-6 bg-white rounded-lg shadow-sm">
                 <Award className="w-12 h-12 text-stis-green-500 mx-auto mb-4" />
-                <div className="text-3xl font-bold text-gray-900 mb-2">15+</div>
+                <div className="text-3xl font-bold text-gray-900 mb-2">
+                  {totalPrestasi}+
+                </div>
                 <div className="text-gray-600">Momen Prestasi</div>
               </div>
               <div className="p-6 bg-white rounded-lg shadow-sm">
                 <Users className="w-12 h-12 text-purple-500 mx-auto mb-4" />
                 <div className="text-3xl font-bold text-gray-900 mb-2">
-                  100+
+                  {totalKegiatan}+
                 </div>
                 <div className="text-gray-600">Kegiatan Terdokumentasi</div>
               </div>

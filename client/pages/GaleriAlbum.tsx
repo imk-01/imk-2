@@ -15,134 +15,38 @@ import {
 } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { galeriList } from "@/data/galeri"; // Import data
 
 export default function GaleriAlbum() {
   const { slug } = useParams();
   const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
-  // Sample album data - in real app this would come from API
-  const albumData = {
-    id: slug || "wisuda-2024",
-    title: "Wisuda Semester Ganjil 2024/2025",
-    description:
-      "Dokumentasi kegiatan wisuda semester ganjil tahun akademik 2024/2025 yang diselenggarakan di Auditorium STIS. Sebanyak 245 mahasiswa dinyatakan lulus dan siap mengabdikan ilmunya untuk kemajuan bangsa.",
-    date: "2024-11-20",
-    location: "Auditorium STIS, Jakarta Timur",
-    photographer: "Tim Dokumentasi STIS",
-    views: 856,
-    totalPhotos: 48,
-    coverImage: "/api/placeholder/800/600",
-    images: [
-      {
-        id: 1,
-        url: "/api/placeholder/800/600",
-        thumbnail: "/api/placeholder/300/200",
-        caption: "Prosesi wisuda di Auditorium STIS",
-        title: "Opening Ceremony",
-      },
-      {
-        id: 2,
-        url: "/api/placeholder/800/600",
-        thumbnail: "/api/placeholder/300/200",
-        caption: "Sambutan Direktur STIS",
-        title: "Sambutan Direktur",
-      },
-      {
-        id: 3,
-        url: "/api/placeholder/800/600",
-        thumbnail: "/api/placeholder/300/200",
-        caption: "Penyerahan ijazah kepada lulusan terbaik",
-        title: "Penyerahan Ijazah",
-      },
-      {
-        id: 4,
-        url: "/api/placeholder/800/600",
-        thumbnail: "/api/placeholder/300/200",
-        caption: "Foto bersama lulusan Program D-III Statistika",
-        title: "Lulusan D-III",
-      },
-      {
-        id: 5,
-        url: "/api/placeholder/800/600",
-        thumbnail: "/api/placeholder/300/200",
-        caption: "Foto bersama lulusan Program D-IV Statistika",
-        title: "Lulusan D-IV Statistika",
-      },
-      {
-        id: 6,
-        url: "/api/placeholder/800/600",
-        thumbnail: "/api/placeholder/300/200",
-        caption: "Foto bersama lulusan Program D-IV Komputasi Statistika",
-        title: "Lulusan D-IV Komputasi",
-      },
-      {
-        id: 7,
-        url: "/api/placeholder/800/600",
-        thumbnail: "/api/placeholder/300/200",
-        caption: "Suasana kegembiraan keluarga wisudawan",
-        title: "Kegembiraan Keluarga",
-      },
-      {
-        id: 8,
-        url: "/api/placeholder/800/600",
-        thumbnail: "/api/placeholder/300/200",
-        caption: "Dokumentasi bersama dosen dan staff",
-        title: "Foto Bersama Dosen",
-      },
-      {
-        id: 9,
-        url: "/api/placeholder/800/600",
-        thumbnail: "/api/placeholder/300/200",
-        caption: "Wisudawan terbaik menerima penghargaan",
-        title: "Penghargaan Wisudawan Terbaik",
-      },
-      {
-        id: 10,
-        url: "/api/placeholder/800/600",
-        thumbnail: "/api/placeholder/300/200",
-        caption: "Penutupan acara wisuda",
-        title: "Penutupan Acara",
-      },
-      {
-        id: 11,
-        url: "/api/placeholder/800/600",
-        thumbnail: "/api/placeholder/300/200",
-        caption: "Sesi foto keluarga di area kampus",
-        title: "Foto Keluarga",
-      },
-      {
-        id: 12,
-        url: "/api/placeholder/800/600",
-        thumbnail: "/api/placeholder/300/200",
-        caption: "Suasana kampus saat hari wisuda",
-        title: "Suasana Kampus",
-      },
-    ],
-    relatedAlbums: [
-      {
-        id: "orientasi-2024",
-        title: "Orientasi Mahasiswa Baru 2024",
-        coverImage: "/api/placeholder/300/200",
-        totalPhotos: 32,
-        date: "2024-09-15",
-      },
-      {
-        id: "seminar-nasional-2024",
-        title: "Seminar Nasional Statistika 2024",
-        coverImage: "/api/placeholder/300/200",
-        totalPhotos: 28,
-        date: "2024-10-10",
-      },
-      {
-        id: "dies-natalis-2024",
-        title: "Dies Natalis STIS ke-66",
-        coverImage: "/api/placeholder/300/200",
-        totalPhotos: 45,
-        date: "2024-09-01",
-      },
-    ],
-  };
+  // Find album data by slug from the imported galeriList
+  const albumData = galeriList.find((album) => album.slug === slug);
+
+  // Handle case where album is not found
+  if (!albumData) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <Navigation />
+        <div className="container mx-auto px-4 py-20 text-center">
+          <h1 className="text-3xl font-bold text-gray-800">Album tidak ditemukan</h1>
+          <p className="text-gray-600 mt-4">
+            Album yang Anda cari tidak ada.
+          </p>
+          <Button onClick={() => navigate("/galeri")} className="mt-8">
+            Kembali ke Galeri
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
+  // Related albums (example logic, adjust as needed)
+  const relatedAlbums = galeriList
+    .filter((album) => album.id !== albumData.id)
+    .slice(0, 3);
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString("id-ID", {
@@ -177,7 +81,6 @@ export default function GaleriAlbum() {
   };
 
   const downloadImage = (imageUrl: string, title: string) => {
-    // In a real app, this would handle the actual download
     const link = document.createElement("a");
     link.href = imageUrl;
     link.download = `${albumData.title} - ${title}.jpg`;
@@ -219,7 +122,7 @@ export default function GaleriAlbum() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div className="lg:col-span-1">
               <img
-                src={albumData.coverImage}
+                src={albumData.image}
                 alt={albumData.title}
                 className="w-full h-64 object-cover rounded-lg"
               />
@@ -238,20 +141,8 @@ export default function GaleriAlbum() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <ImageIcon size={16} />
-                  <span>{albumData.totalPhotos} foto</span>
+                  <span>{albumData.images.length} foto</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <Eye size={16} />
-                  <span>{albumData.views} views</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <span className="font-medium">Lokasi:</span>
-                  <span>{albumData.location}</span>
-                </div>
-              </div>
-              <div className="mt-4 text-sm text-gray-600">
-                <span className="font-medium">Fotografer:</span>{" "}
-                {albumData.photographer}
               </div>
             </div>
           </div>
@@ -316,15 +207,15 @@ export default function GaleriAlbum() {
                   Album Lainnya
                 </h3>
                 <div className="space-y-4">
-                  {albumData.relatedAlbums.map((album) => (
+                  {relatedAlbums.map((album) => (
                     <div
                       key={album.id}
                       className="group cursor-pointer"
-                      onClick={() => navigate(`/galeri/album/${album.id}`)}
+                      onClick={() => navigate(`/galeri/album/${album.slug}`)}
                     >
                       <div className="flex space-x-3">
                         <img
-                          src={album.coverImage}
+                          src={album.image}
                           alt={album.title}
                           className="w-16 h-16 object-cover rounded-lg flex-shrink-0"
                         />
@@ -333,7 +224,7 @@ export default function GaleriAlbum() {
                             {album.title}
                           </h4>
                           <div className="flex items-center space-x-2 text-xs text-gray-500">
-                            <span>{album.totalPhotos} foto</span>
+                            <span>{album.images.length} foto</span>
                             <span>•</span>
                             <span>{formatDate(album.date)}</span>
                           </div>
