@@ -23,9 +23,7 @@ import D4KomputasiStatistika from "./pages/D4KomputasiStatistika";
 import KalenderAkademik from "./pages/KalenderAkademik";
 import Kemahasiswaan from "./pages/Kemahasiswaan";
 import Galeri from "./pages/Galeri";
-import RencanaStrategis from "./pages/RencanaStrategis";
 import AkreditasiSTIS from "./pages/AkreditasiSTIS";
-import MaklumatPelayanan from "./pages/MaklumatPelayanan";
 import InformasiPublik from "./pages/InformasiPublik";
 import Berita from "./pages/Berita";
 import BeritaDetail from "./pages/BeritaDetail";
@@ -34,6 +32,16 @@ import OrganisasiKemahasiswaan from "./pages/OrganisasiKemahasiswaan";
 import SenatMahasiswa from "./pages/SenatMahasiswa";
 import PrestasiMahasiswa from "./pages/PrestasiMahasiswa";
 import SearchResults from "./pages/SearchResults";
+import ProsedurLegalisir from "./pages/ProsedurLegalisir";
+import RencanaStrategisDetail from "./pages/InformasiPublikDetail/RencanaStrategisDetail";
+import LaporanKinerjaDetail from "./pages/InformasiPublikDetail/LaporanKinerjaDetail";
+import AkreditasiDetail from "./pages/InformasiPublikDetail/AkreditasiDetail";
+import LaporanPelayananPublikDetail from "./pages/InformasiPublikDetail/LaporanPelayananPublikDetail";
+import PeraturanAkademikDetail from "./pages/InformasiPublikDetail/PeraturanAkademikDetail";
+import PerjanjianKinerjaDetail from "./pages/InformasiPublikDetail/PerjanjianKinerjaDetail";
+import IndikatorKinerjaUtamaDetail from "./pages/InformasiPublikDetail/IndikatorKinerjaUtamaDetail";
+import PerjanjianKerjaSamaDetail from "./pages/InformasiPublikDetail/PerjanjianKerjasamaDetail";
+import MaklumatPelayananDetail from "./pages/InformasiPublikDetail/MaklumatPelayananDetail";
 
 const queryClient = new QueryClient();
 
@@ -81,17 +89,42 @@ const App = () => (
           <Route path="/informasi-publik" element={<InformasiPublik />} />
           <Route
             path="/informasi-publik/renstra"
-            element={<RencanaStrategis />}
+            element={<RencanaStrategisDetail />}
           />
           <Route
-            path="/informasi-publik/akreditasi"
-            element={<AkreditasiSTIS />}
+            path="/informasi-publik/laporan-pelayanan"
+            element={<LaporanPelayananPublikDetail />}
+          />
+          <Route
+            path="/informasi-publik/peraturan"
+            element={<PeraturanAkademikDetail />}
+          />
+          <Route
+            path="/informasi-publik/perjanjian-kinerja"
+            element={<PerjanjianKinerjaDetail />}
+          />
+          <Route
+            path="/informasi-publik/iku"
+            element={<IndikatorKinerjaUtamaDetail />}
+          />
+          <Route
+            path="/informasi-publik/laporan-kinerja"
+            element={<LaporanKinerjaDetail />}
+          />
+          <Route
+            path="/informasi-publik/kerja-sama"
+            element={<PerjanjianKerjaSamaDetail />}
           />
           <Route
             path="/informasi-publik/maklumat"
-            element={<MaklumatPelayanan />}
+            element={<MaklumatPelayananDetail />}
+          />
+          <Route
+            path="/informasi-publik/akreditasi"
+            element={<AkreditasiDetail />}
           />
           <Route path="/informasi-publik/*" element={<NotFound />} />
+          <Route path="/layanan/legalisir" element={<ProsedurLegalisir />} />
           <Route path="/layanan/*" element={<NotFound />} />
           <Route path="/spmb-2025" element={<NotFound />} />
           <Route path="/feedback" element={<NotFound />} />

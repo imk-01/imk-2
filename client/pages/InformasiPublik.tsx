@@ -8,132 +8,31 @@ import {
   FileText,
   Download,
   Calendar,
-  Users,
-  BarChart3,
-  Shield,
-  Award,
-  BookOpen,
-  Target,
-  TrendingUp,
-  CheckCircle,
-  Globe,
   Search,
   Filter,
+  ChevronDown,
+  Eye,
+  DownloadCloud,
+  File,
+  FileSpreadsheet,
+  Archive,
+  CheckCircle,
+  BookOpen,
+  Shield,
 } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  DropdownMenuSeparator,
+  DropdownMenuLabel,
+} from "@/components/ui/dropdown-menu";
+import { publicDocuments } from "@/data/informasiPublikData"; // <-- Impor data dari file baru
 
 export default function InformasiPublik() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Semua");
-
-  const publicDocuments = [
-    {
-      title: "Rencana Strategis 2024-2029",
-      description:
-        "Dokumen perencanaan strategis institusi untuk periode 2024-2029",
-      category: "Perencanaan",
-      updated: "Januari 2024",
-      size: "2.5 MB",
-      format: "PDF",
-      href: "/informasi-publik/renstra",
-      icon: Target,
-      color: "bg-stis-blue-600",
-    },
-    {
-      title: "Laporan Pelayanan Publik 2023",
-      description:
-        "Laporan tahunan pelayanan publik dan tingkat kepuasan masyarakat",
-      category: "Laporan",
-      updated: "Maret 2024",
-      size: "1.8 MB",
-      format: "PDF",
-      href: "/informasi-publik/laporan-pelayanan",
-      icon: Users,
-      color: "bg-stis-green-600",
-    },
-    {
-      title: "Peraturan Akademik Terbaru",
-      description: "Kumpulan peraturan akademik dan kemahasiswaan yang berlaku",
-      category: "Regulasi",
-      updated: "Februari 2024",
-      size: "3.2 MB",
-      format: "PDF",
-      href: "/informasi-publik/peraturan",
-      icon: BookOpen,
-      color: "bg-stis-orange-600",
-    },
-    {
-      title: "Perjanjian Kinerja 2024",
-      description:
-        "Dokumen perjanjian kinerja institusi dengan Kementerian Pendidikan",
-      category: "Kontrak",
-      updated: "Januari 2024",
-      size: "1.2 MB",
-      format: "PDF",
-      href: "/informasi-publik/perjanjian-kinerja",
-      icon: FileText,
-      color: "bg-purple-600",
-    },
-    {
-      title: "Indikator Kinerja Utama",
-      description:
-        "Key Performance Indicators (KPI) dan target pencapaian institusi",
-      category: "Monitoring",
-      updated: "Desember 2023",
-      size: "950 KB",
-      format: "PDF",
-      href: "/informasi-publik/iku",
-      icon: BarChart3,
-      color: "bg-indigo-600",
-    },
-    {
-      title: "Laporan Kinerja 2023",
-      description:
-        "Laporan pencapaian kinerja institusi berdasarkan target yang ditetapkan",
-      category: "Laporan",
-      updated: "Maret 2024",
-      size: "2.1 MB",
-      format: "PDF",
-      href: "/informasi-publik/laporan-kinerja",
-      icon: TrendingUp,
-      color: "bg-teal-600",
-    },
-    {
-      title: "Perjanjian Kerja Sama",
-      description:
-        "Dokumen kerjasama dengan berbagai institusi dalam dan luar negeri",
-      category: "Kerjasama",
-      updated: "Februari 2024",
-      size: "1.5 MB",
-      format: "ZIP",
-      href: "/informasi-publik/kerja-sama",
-      icon: Globe,
-      color: "bg-cyan-600",
-    },
-    {
-      title: "Maklumat Pelayanan",
-      description:
-        "Standar pelayanan publik dan komitmen kualitas layanan STIS",
-      category: "Pelayanan",
-      updated: "Januari 2024",
-      size: "800 KB",
-      format: "PDF",
-      href: "/informasi-publik/maklumat",
-      icon: Shield,
-      color: "bg-emerald-600",
-    },
-    {
-      title: "Dokumen Akreditasi",
-      description:
-        "Sertifikat akreditasi institusi dan program studi dari BAN-PT",
-      category: "Akreditasi",
-      updated: "Oktober 2023",
-      size: "2.8 MB",
-      format: "ZIP",
-      href: "/informasi-publik/akreditasi",
-      icon: Award,
-      color: "bg-amber-600",
-    },
-  ];
 
   const filteredDocuments = publicDocuments.filter((doc) => {
     const matchesSearch =
@@ -195,6 +94,21 @@ export default function InformasiPublik() {
       icon: Download,
     },
   ];
+
+  const getFileIcon = (format: string) => {
+    switch (format.toLowerCase()) {
+      case "pdf":
+        return <File className="w-4 h-4 text-red-600" />;
+      case "xlsx":
+      case "xls":
+        return <FileSpreadsheet className="w-4 h-4 text-green-600" />;
+      case "zip":
+        return <Archive className="w-4 h-4 text-orange-600" />;
+      default:
+        return <FileText className="w-4 h-4 text-gray-600" />;
+    }
+  };
+
 
   return (
     <div className="min-h-screen bg-white">
@@ -342,7 +256,7 @@ export default function InformasiPublik() {
                   return (
                     <Card
                       key={index}
-                      className="overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group"
+                      className="overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group"
                     >
                       <CardHeader className="pb-4">
                         <div className="flex items-start justify-between">
@@ -358,7 +272,7 @@ export default function InformasiPublik() {
                           </div>
                         </div>
                         <CardTitle className="text-lg group-hover:text-stis-blue-600 transition-colors">
-                          {doc.title}
+                            <a href={doc.href} className="cursor-pointer">{doc.title}</a>
                         </CardTitle>
                       </CardHeader>
                       <CardContent className="pt-0">
@@ -368,9 +282,10 @@ export default function InformasiPublik() {
                         <div className="space-y-2 mb-4">
                           <div className="flex justify-between text-xs text-gray-500">
                             <span>Update: {doc.updated}</span>
-                            <span>
-                              {doc.size} • {doc.format}
-                            </span>
+                             <span>
+                               {doc.downloads?.length || 0} file
+                               {doc.downloads?.length !== 1 ? "s" : ""}
+                             </span>
                           </div>
                         </div>
                         <div className="flex gap-2">
@@ -379,16 +294,89 @@ export default function InformasiPublik() {
                             className="flex-1 bg-stis-blue-600 hover:bg-stis-blue-700"
                             onClick={() => (window.location.href = doc.href)}
                           >
-                            <FileText className="w-4 h-4 mr-2" />
-                            Lihat
+                            <Eye className="w-4 h-4 mr-2" />
+                            Lihat Detail
                           </Button>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            className="border-stis-green-600 text-stis-green-600 hover:bg-stis-green-600 hover:text-white"
-                          >
-                            <Download className="w-4 h-4" />
-                          </Button>
+                          
+                          {doc.downloads && doc.downloads.length > 0 && (
+                            <DropdownMenu>
+                              <DropdownMenuTrigger asChild>
+                                <Button
+                                  size="sm"
+                                  variant="outline"
+                                  className="border-stis-green-600 text-stis-green-600 hover:bg-stis-green-600 hover:text-white"
+                                >
+                                  <Download className="w-4 h-4 mr-1" />
+                                  <ChevronDown className="w-4 h-4 ml-1" />
+                                </Button>
+                              </DropdownMenuTrigger>
+                              <DropdownMenuContent
+                                align="end"
+                                className="w-80 max-h-96 overflow-y-auto"
+                              >
+                                <DropdownMenuLabel className="text-stis-blue-900 font-semibold">
+                                  Pilih dokumen ({doc.downloads.length} file)
+                                </DropdownMenuLabel>
+                                <DropdownMenuSeparator />
+{doc.downloads?.map(
+  (download, downloadIndex) => {
+    
+    // Logika untuk menampilkan item dropdown
+    const dropdownItemContent = (
+        <>
+            <div className="flex-shrink-0">
+                {getFileIcon(download.format)}
+            </div>
+            <div className="flex-1 min-w-0">
+                <div className="font-medium text-gray-900 truncate">
+                    {download.name}
+                </div>
+                <div className="text-xs text-gray-500">
+                    {download.size} • {download.format}
+                </div>
+            </div>
+            <Download className="w-4 h-4 text-stis-green-600 flex-shrink-0" />
+        </>
+    );
+
+    if (download.openInNewTab) {
+      // Render sebagai tautan <a> yang dibungkus oleh DropdownMenuItem asChild
+      return (
+        <DropdownMenuItem key={downloadIndex} asChild>
+          <a
+            href={download.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-3 p-3 cursor-pointer hover:bg-stis-blue-50"
+          >
+            {dropdownItemContent}
+          </a>
+        </DropdownMenuItem>
+      );
+    }
+
+    // Render sebagai item yang memicu download
+    return (
+      <DropdownMenuItem
+        key={downloadIndex}
+        className="flex items-center space-x-3 p-3 cursor-pointer hover:bg-stis-blue-50"
+        onClick={() => {
+          const link = document.createElement("a");
+          link.href = download.url;
+          link.download = download.name;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }}
+      >
+        {dropdownItemContent}
+      </DropdownMenuItem>
+    );
+  },
+)}
+                              </DropdownMenuContent>
+                            </DropdownMenu>
+                          )}
                         </div>
                       </CardContent>
                     </Card>
@@ -444,7 +432,9 @@ export default function InformasiPublik() {
         </div>
       </section>
 
+      {/* Footer */}
       <Footer />
+
     </div>
   );
 }
