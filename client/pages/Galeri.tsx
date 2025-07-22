@@ -40,7 +40,11 @@ export default function Galeri() {
     return matchesCategory && matchesSearch;
   });
 
-  const featuredGalleries = galeriList.filter((gallery) => gallery.featured);
+  const featuredGalleries = galeriList.filter((gallery) =>
+    ["wisuda-ke-62", "perpustakaan-polstat-stis", "dies-natalis-66"].includes(
+      gallery.slug,
+    ),
+  );
 
   // Dynamic gallery statistics
   const totalPhotos = galeriList.reduce(
